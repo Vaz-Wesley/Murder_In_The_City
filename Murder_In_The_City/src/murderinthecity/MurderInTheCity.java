@@ -9,7 +9,7 @@ import byu.cit260.murderInTheCity.model.Player;
 
 /**
  *
- * @author W
+ * @author Wady Tupiza and Wesley Vaz
  */
 public class MurderInTheCity {
 
@@ -20,8 +20,8 @@ public class MurderInTheCity {
         Player playerOne = new Player();
         
         playerOne.setName("Albert Hancock");
-        //playerOne.rankTitle("Probational Detective");
-        playerOne.setProgress(0.00);
+        playerOne.setRankTitle("Probational Police");
+        playerOne.setProgress(0.0);
         
         String playerInfo = playerOne.toString();
         System.out.println(playerInfo);

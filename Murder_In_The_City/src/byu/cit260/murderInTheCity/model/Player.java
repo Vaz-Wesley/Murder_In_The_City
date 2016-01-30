@@ -10,7 +10,7 @@ import java.util.Objects;
 
 /**
  *
- * @author W
+ * @author Wady Tupiza and Wesley Vaz
  */
 public class Player implements Serializable {
     
@@ -81,7 +81,7 @@ public class Player implements Serializable {
         }
         if (!Objects.equals(this.rankTitle, other.rankTitle)) {
             return false;
-        }
+    }
         return true;
     }
 
