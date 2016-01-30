@@ -20,7 +20,7 @@ public class MurderInTheCity {
         Player playerOne = new Player();
         
         playerOne.setName("Albert Hancock");
-        playerOne.setRankTitle("Probational Police");
+        playerOne.setRankTitle("Probational Detective");
         playerOne.setProgress(0.0);
         
         String playerInfo = playerOne.toString();
