@@ -29,7 +29,7 @@ public class MurderInTheCity {
      */
     public static void main(String[] args) {
         
-        // this is the Character instance
+        // this is the SuspectList instance
         SuspectList suspectListInfo = new SuspectList();
         
         suspectListInfo.setSuspectName("To Be Set");
@@ -40,7 +40,7 @@ public class MurderInTheCity {
         String SuspectListCheck = suspectListInfo.toString();
         System.out.println(suspectListInfo);
         
-        // this is the Character instance
+        // this is the Map instance
         Map mapInfo = new Map();
         
         mapInfo.setRowCount(0);
@@ -51,7 +51,7 @@ public class MurderInTheCity {
         String MapCheck = mapInfo.toString();
         System.out.println(mapInfo);
         
-        // this is the Character instance
+        // this is the Personage instance
         Personage personageInfo = new Personage();
         
         personageInfo.setPersonageType("To Be Set");
@@ -63,7 +63,7 @@ public class MurderInTheCity {
         String PersonageCheck = personageInfo.toString();
         System.out.println(personageInfo);
         
-        // this is the Character instance
+        // this is the Game instance
         Game gameInfo = new Game();
         
         gameInfo.setTimePlayed("To Be Set");
@@ -73,7 +73,7 @@ public class MurderInTheCity {
         String GameCheck = gameInfo.toString();
         System.out.println(gameInfo);
         
-        // this is the LabScene instance
+        // this is the CaseSolved instance
         CasesSolved casesSolvedInfo = new CasesSolved();
         
         casesSolvedInfo.setCaseName("To Be Set");
