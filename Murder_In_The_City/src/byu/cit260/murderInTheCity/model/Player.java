@@ -83,13 +83,6 @@ public class Player implements Serializable {
             return false;
     }
         return true;
-    }
-
-    public void rankTitle(String probational_Detective) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
-    
-    
+    }    
     
 }
