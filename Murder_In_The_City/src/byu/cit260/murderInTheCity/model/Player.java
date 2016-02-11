@@ -14,50 +14,50 @@ import java.util.Objects;
  */
 public class Player implements Serializable {
     
-    private String name;
-    private String rankTitle;
-    private double progress;
+    private String playerName;
+    private String playerRankTitle;
+    private double playerProgress;
 
     public Player() {
     }
+
+    public String getPlayerName() {
+        return playerName;
+    }
+
+    public void setPlayerName(String playerName) {
+        this.playerName = playerName;
+    }
+
+    public String getPlayerRankTitle() {
+        return playerRankTitle;
+    }
+
+    public void setPlayerRankTitle(String playerRankTitle) {
+        this.playerRankTitle = playerRankTitle;
+    }
+
+    public double getPlayerProgress() {
+        return playerProgress;
+    }
+
+    public void setPlayerProgress(double playerProgress) {
+        this.playerProgress = playerProgress;
+    }
       
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getRankTitle() {
-        return rankTitle;
-    }
-
-    public void setRankTitle(String rankTitle) {
-        this.rankTitle = rankTitle;
-    }
-
-    public double getProgress() {
-        return progress;
-    }
-
-    public void setProgress(double progress) {
-        this.progress = progress;
-    }
-
+    
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 17 * hash + Objects.hashCode(this.name);
-        hash = 17 * hash + Objects.hashCode(this.rankTitle);
-        hash = 17 * hash + (int) (Double.doubleToLongBits(this.progress) ^ (Double.doubleToLongBits(this.progress) >>> 32));
+        hash = 17 * hash + Objects.hashCode(this.playerName);
+        hash = 17 * hash + Objects.hashCode(this.playerRankTitle);
+        hash = 17 * hash + (int) (Double.doubleToLongBits(this.playerProgress) ^ (Double.doubleToLongBits(this.playerProgress) >>> 32));
         return hash;
     }
 
     @Override
     public String toString() {
-        return "Player{" + "name=" + name + ", rankTitle=" + rankTitle + ", progress=" + progress + '}';
+        return "Player{" + "playerName=" + playerName + ", playerRankTitle=" + playerRankTitle + ", playerProgress=" + playerProgress + '}';
     }
     
 
@@ -73,13 +73,13 @@ public class Player implements Serializable {
             return false;
         }
         final Player other = (Player) obj;
-        if (Double.doubleToLongBits(this.progress) != Double.doubleToLongBits(other.progress)) {
+        if (Double.doubleToLongBits(this.playerProgress) != Double.doubleToLongBits(other.playerProgress)) {
             return false;
         }
-        if (!Objects.equals(this.name, other.name)) {
+        if (!Objects.equals(this.playerName, other.playerName)) {
             return false;
         }
-        if (!Objects.equals(this.rankTitle, other.rankTitle)) {
+        if (!Objects.equals(this.playerRankTitle, other.playerRankTitle)) {
             return false;
     }
         return true;

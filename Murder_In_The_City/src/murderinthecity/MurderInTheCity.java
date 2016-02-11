@@ -150,9 +150,9 @@ public class MurderInTheCity {
         // this is the Player instance
         Player playerOne = new Player();
         
-        playerOne.setName("");
-        playerOne.setRankTitle("Probational Detective");
-        playerOne.setProgress(0.0);
+        playerOne.setPlayerName("");
+        playerOne.setPlayerRankTitle("Probational Detective");
+        playerOne.setPlayerProgress(0.0);
         
         String playerInfo = playerOne.toString();
         System.out.println(playerInfo);
