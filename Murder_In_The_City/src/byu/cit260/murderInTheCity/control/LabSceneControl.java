@@ -13,7 +13,7 @@ public class LabSceneControl {
     
     public double calcTimeSinceDeath(double avgBodyTemp, double currentBodyTemp, double heatLostPerHour){
     
-        if (avgBodyTemp != 98.5) { // is average temperature different?
+        if (avgBodyTemp != 98.6) { // is average temperature different?
             return -1;
         }
         
