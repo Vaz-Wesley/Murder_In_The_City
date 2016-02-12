@@ -7,6 +7,7 @@ package byu.cit260.murderInTheCity.model;
 
 import java.io.Serializable;
 import java.util.Objects;
+import java.util.Scanner;
 
 /**
  *
@@ -19,9 +20,14 @@ public class Player implements Serializable {
     private double playerProgress;
 
     public Player() {
+    	
+    	
     }
 
-    public String getPlayerName() {
+    @SuppressWarnings("resource")
+	public String getPlayerName() {
+    	
+    	   	
         return playerName;
     }
 
