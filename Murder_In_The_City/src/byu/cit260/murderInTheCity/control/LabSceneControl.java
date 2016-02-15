@@ -31,4 +31,44 @@ public class LabSceneControl {
         return timeSinceDeath;
                 
     }
+    
+    public double validateAlibi(double speedOfTravel, double milesTraveled, double minutesInAnHour) {
+        
+        if (milesTraveled < 2 || milesTraveled > 60) {
+            return -1;
+        }
+	
+        if (minutesInAnHour != 60) {
+            return -1;
+        }
+        
+        if (speedOfTravel < 10 || speedOfTravel > 90 ) {
+            return -1;
+        }
+    
+	double minutesOfTravel = milesTraveled / speedOfTravel * minutesInAnHour;
+        
+	return minutesOfTravel;
+
+    }
+    
+    public double celsiusToFahrenheit( double tempCelsius, double factorOne, double factorTwo) {
+     
+        if (tempCelsius < -20 || tempCelsius > 50) {
+		return -1;
+        }
+        
+	if (factorOne != 1.8) {
+		return -1;
+        }
+        
+	if (factorTwo != 32) {
+		return -1;
+        }
+        
+	double tempFahrenheit = tempCelsius * factorOne + factorTwo;
+	
+        return tempFahrenheit;
+
+    }
 }
