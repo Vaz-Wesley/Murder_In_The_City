@@ -60,25 +60,22 @@ public class StartProgramView {
      * display the start program view
      */
     public void displayStartProgramView() {
-       
-        boolean done = false; // set flag to not done
         
-        do {
-            // prompt for and get players name
+        boolean done = false;
+        do{            
             String playersName = this.getPlayersName();
-            if (playersName.toUpperCase().equals("Q")) // user wants to quit
-                return; // exit the game    
+            if(playersName.toUpperCase().equals("E"))
+                return;
             
-            // do the requested action and display the next view
             done = this.doAction(playersName);
-        
+                        
         } while (!done);
-       
     }
 
-    private String getPlayersName() {
+    private String getPlayersName() {        
+          
         Scanner keyboard = new Scanner(System.in); // get infile for keyboard
-        String value =""; // value to be returned
+        String value =" "; // value to be returned
         
         boolean valid = false; // initialize to not valid
         
@@ -97,43 +94,46 @@ public class StartProgramView {
         }
         
         return value; // return the value entered
+
     }
 
     private boolean doAction(String playersName) {
         
-        if (playersName.length() < 2) {
+        
+        if (playersName.length() < 2){            
             System.out.println("\nInvalid players name: "
-                + "The name must be greater than one character in length");
+                     + "The name must be greater than one character in length");
             return false;
         }
         
-        // call createPlayer() control function
         Player player = GameControl.createPlayer(playersName);
         
-        if (player == null) { //if unsuccessful
-            System.out.println("\nError creating the player.");
+        if (player == null){            
+            System.out.println("\nError creating the player");
             return false;
+            
         }
         
-        // display next view
         this.displayNextView(player);
-        return true; //success !
+        
+        return true; 
+        
     }
-    
+
     private void displayNextView(Player player) {
         
-        // display a custom welcome message
-        System.out.println("\n================================================"
-                          + "\n Welcome to the game " + player.getPlayerName()
-                          + "\n We hope you have a lot of fun!"
-                          + "\n================================================"
-                          );
+       
+        System.out.println("\n============================================="
+                           + "\n Welcome to the game " + player.getPlayerName()
+                           + "\n We hope you have a lot of fun             "
+                           + "\n==========================================="
+                           );
         
-        // create MainMenuView object
-        MainMenuView mainMenuView = new MainMenuView();
+            MainMenuView mainMenuView = new MainMenuView();
                 
-        // display the main menu view
-        mainMenuView.displayMainMenuView();
+            mainMenuView.displayMainMenuView();
+
+                
     }
     
 }

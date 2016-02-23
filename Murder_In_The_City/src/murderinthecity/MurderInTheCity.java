@@ -5,6 +5,8 @@
  */
 package murderinthecity;
 
+import byu.cit260.murderInTheCity.model.Game;
+import byu.cit260.murderInTheCity.model.Player;
 import byu.cit260.murderInTheCity.view.StartProgramView;
 
 /**
@@ -12,6 +14,9 @@ import byu.cit260.murderInTheCity.view.StartProgramView;
  * @author Wady Tupiza and Wesley Vaz
  */
 public class MurderInTheCity {
+    
+    private static Game currentGame = null;
+    private static Player player = null;
     
     /**
      * @param args the command line arguments
@@ -21,5 +26,25 @@ public class MurderInTheCity {
         StartProgramView startProgramView = new StartProgramView();
         startProgramView.displayStartProgramView();
     }
+
+    public static Game getCurrentGame() {
+        return currentGame;
+    }
+
+    public static void setCurrentGame(Game currentGame) {
+        MurderInTheCity.currentGame = currentGame;
+    }
+
+    public static Player getPlayer() {
+        return player;
+    }
+
+    public static void setPlayer(Player player) {
+        MurderInTheCity.player = player;
+    }
     
-}
+    
+    
+         
+    }
+    

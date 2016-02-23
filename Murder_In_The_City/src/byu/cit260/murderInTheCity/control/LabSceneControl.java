@@ -7,7 +7,7 @@ package byu.cit260.murderInTheCity.control;
 
 /**
  *
- * @author Wesley Vaz_2
+ * @author Wady Tupiza
  */
 public class LabSceneControl {
     

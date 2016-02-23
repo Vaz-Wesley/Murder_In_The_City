@@ -10,23 +10,26 @@ import byu.cit260.murderInTheCity.model.Player;
 
 /**
  *
- * @author Wesley Vaz_2
+ * @author Wady Tupiza
  */
 public class GameControl {
-
-    // (test) stub function
-    public static Player createPlayer(String name) {
+    
+    public static Player createPlayer(String name){
         
-        if (name == null){
-            return null;
+        //System.out.println("\n*** creatPlayer() function called ***");
+         if (name == null){
+            return null;            
         }
         
         Player player = new Player();
         player.setPlayerName(name);
         
-        MurderInTheCity.setPlayer(player); // save the player
-        
+        MurderInTheCity.setPlayer(player);
         return player;
     }
-    
+
+    public static void createNewGame(Player player) {
+        System.out.println("*** createNewGame stub function called ***");    
+    }
 }
+    

@@ -7,7 +7,6 @@ package byu.cit260.murderInTheCity.model;
 
 import java.io.Serializable;
 import java.util.Objects;
-import java.util.Scanner;
 
 /**
  *
@@ -26,7 +25,6 @@ public class Player implements Serializable {
 
     @SuppressWarnings("resource")
 	public String getPlayerName() {
-    	
     	   	
         return playerName;
     }
@@ -90,5 +88,9 @@ public class Player implements Serializable {
     }
         return true;
     }    
+/*
+    public void setName(String name) {
+        System.out.println("*** setName() function called ***");
+    }*/
     
 }
