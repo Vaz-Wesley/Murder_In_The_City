@@ -14,10 +14,6 @@ import java.util.Scanner;
  */
 public class MainMenuView {
         
-    //System.out.println("\n"
-        
-        //private final String menu;
-        
         public MainMenuView(){
             
             
@@ -111,13 +107,13 @@ public class MainMenuView {
     
     
         private void startNewGame(){    
-            
-           System.out.println("*** StartNewGame function called ***");
-          
+            System.out.println("*** startNewGame function called ***");
         }
         
         private void getHelp(){            
-            System.out.println("*** getHelp function called ***");
+            HelpMenuView helpMenuView = new HelpMenuView();
+                
+            helpMenuView.displayHelpMenuView();
         }
         
         private void saveGame(){            

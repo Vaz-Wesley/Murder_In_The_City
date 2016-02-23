@@ -18,8 +18,8 @@ public class HelpMenuView {
     
     private final String Menu = "\n"
             + "\n -------------------------------------------"
-            + "\n | Main Menu                               |"
-            + "\n |------------------------------------------"
+            + "\n   Get Help                                 "
+            + "\n -------------------------------------------"
             + "\n P - Purpose of the game                    "
             + "\n M - Moving in the game                     "
             + "\n T - Calculate time since death             "
@@ -29,7 +29,7 @@ public class HelpMenuView {
             + "\n -------------------------------------------";
             
 
-    public void displayMenu() {
+    public void displayHelpMenuView() {
         
         char selection = ' ';
         
@@ -76,27 +76,62 @@ public class HelpMenuView {
     
     
         private void showPurposeGame(){            
-            System.out.println("*** showPurposeGame function called ***");
+            System.out.println("\n The game begins on Albert's first day as a   "
+                            + "\n probational police detective. During the     "
+                            + "\n game, you will need to solve crimes that     "
+                            + "\n happen throughout the city. With each        "
+                            + "\n high-profile crime that is solved, new       "
+                            + "\n opportunities for promotion arise. You will  "
+                            + "\n have to determine the difference between     "
+                            + "\n murder-suicides, protect your family from    "
+                            + "\n potential danger, and work with other        "
+                            + "\n agencies to solve crimes that will shock the "
+                            + "\n nation. The game ends when you are promoted  "
+                            + "\n to the chief of police.                      "
+                             );
         }
         
         private void showHowToMove(){            
-            System.out.println("*** showHowToMove function called ***");
+            System.out.println("\n The screen prompts the payer to enter the   "
+                            + "\n name of the location they would like to move "
+                            + "\n to. If the location name is invalid, the     "
+                            + "\n computer will throw an error message and     "
+                            + "\n return to the previous screen. If the input  "
+                            + "\n is valid, the player will be moved to the    "
+                            + "\n desired location.                            "
+                             );
         }
         
         private void calcTimeSinceDeath(){            
-            System.out.println("*** calcTimeSinceDeath function called ***");
+            System.out.println("\n A menu appears which asks the player to     "
+                            + "\n enter the time the body was found, body      "
+                            + "\n temperature, and room temperature. Then the  "
+                            + "\n computer calculates the since death.         "
+                              );
         }
         
         private void celsiusToFahrenheit(){            
-            System.out.println("*** celsiusToFahrenheit function called ***");
+            System.out.println("\n The player will enter the temperature in    "
+                            + "\n Celsius to convert it to Fahrenheit.         "
+                              );
         }
         
         private void validateAlibi(){            
-            System.out.println("*** validateAlibi function called ***");
+            System.out.println("\n Using the time of death and Celsius         "
+                            + "\n to Fahrenheit calculations, the computer will"
+                            + "\n prompt the player to enter the information.  "
+                            + "\n It will then output a distance from the e.   "
+                            + "\n crime scene. The player will then be able to "
+                            + "\n see based on the evidence if the suspect     "
+                            + "\n could have committed the crime based on      "
+                            + "\n their alibis.                                "
+                              );
         }
         
         private void exit(){            
-            System.out.println("*** exit function called ***");
+            MainMenuView mainMenuView = new MainMenuView();
+                
+            mainMenuView.displayMainMenuView();
         }
 
     
@@ -107,7 +142,7 @@ public class HelpMenuView {
         boolean valid = false;                      // initialize to not valid
         
         while (!valid) {                            // loop while an invalid value is entered  
-            System.out.println("\n");
+            System.out.println("\nEnter your option");
             
             value = keyboard.nextLine();            // get next lyne typed on keyboard
             value = value.trim();                   // trim off leading and trailing blanks
