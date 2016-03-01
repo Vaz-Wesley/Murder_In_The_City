@@ -7,28 +7,26 @@ package byu.cit260.murderInTheCity.view;
 
 import java.util.Scanner;
 
-
 /**
  *
  * @author Wesley Vaz_2
  */
-public class MainMenuView {
-        
-        public MainMenuView(){
+public class MoveToNewLocationView {
+    
+    public MoveToNewLocationView(){
            
             System.out.println("\n"
                     + "\n -------------------------------------------"
-                    + "\n  Main Menu                                 "
+                    + "\n  Move to a new location                    "
                     + "\n -------------------------------------------"
-                    + "\n L - Start new Game                         "
-                    + "\n H - Get help                               "
-                    + "\n S - Save game                              "
-                    + "\n R - Resume game (if any)                   "
-                    + "\n E - Exit game                              "
+                    + "\n P - Police Office                          "
+                    + "\n L - Laboratory                             "
+                    + "\n C - Crime Scene                            "          
+                    + "\n E - Exit                                   "
                     + "\n -------------------------------------------");
         }
-        
-    public void displayMainMenuView(){
+    
+    public void displayMoveToNewLocationView(){
      
        boolean done = false;
         
@@ -41,8 +39,7 @@ public class MainMenuView {
             
             } while (!done);
     }
-
-       
+    
     private String getMenuOption(){             
         
         Scanner keyboard = new Scanner(System.in); // get infile for keyboard
@@ -68,23 +65,19 @@ public class MainMenuView {
         
     }
     
-    
     public boolean doAction(String choice) {
                 
         choice = choice.toUpperCase();
         
         switch (choice){
-          case "L":                            //Create and start New game
-               this.startNewGame();
+          case "P":                            // Police Office
+               this.policeOffice();
              break;
-          case "H":                           // Get Help
-               this.getHelp();         
+          case "L":                           // Laboratory
+               this.laboratory();         
             break;
-          case "S":                            //Save the game
-                this.saveGame();
-            break;  
-          case "R":                            //Resume the game (if any)
-               this.resumeGame();
+          case "C":                            // Crime Scene
+                this.crimeScene();
             break;
           case "E":                            // Exit game
                this.exit();
@@ -96,28 +89,21 @@ public class MainMenuView {
         return false;
     }
     
-    
-        private void startNewGame(){
-            
-            GamePlayMenu gamePlayMenu = new GamePlayMenu();
-            gamePlayMenu.displayGamePlayMenuView();
+     private void policeOffice(){            
+            System.out.println("*** policeOffice function called ***");
         }
         
-        private void getHelp(){            
-            
-            HelpMenuView helpMenuView = new HelpMenuView(); 
-            helpMenuView.displayHelpMenuView();
+        private void laboratory(){            
+            System.out.println("*** laboratory function called ***");
         }
-        
-        private void saveGame(){            
-            System.out.println("*** saveGame function called ***");
-        }
-        
-        private void resumeGame(){            
-            System.out.println("*** resumeGame function called ***");
+       
+        private void crimeScene(){            
+            System.out.println("*** crimeScene function called ***");
         }
         
         private void exit(){            
-            System.out.println("*** exit function called ***");
+            
+            GamePlayMenu gamePlayMenu = new GamePlayMenu(); 
+            gamePlayMenu.displayGamePlayMenuView();
         }
 }

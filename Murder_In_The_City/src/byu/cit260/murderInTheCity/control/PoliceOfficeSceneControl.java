@@ -11,4 +11,24 @@ package byu.cit260.murderInTheCity.control;
  */
 public class PoliceOfficeSceneControl {
     
+        // case name list which will be substituted by a switch statement
+    String caseNameList= "walking in the park";
+    
+    public String solveCrime(String caseName, double playerProgress){
+    
+        if (caseName != caseNameList) { // does name match a case in the list?
+            return "Case Name Does Not Exist";
+        }
+        
+	if (playerProgress < 100) { // Is progress less than 100%?
+            return "Player Progress Not 100";
+        }
+        
+        // expression
+	String solveTheCrime = "Crime Solved";
+        
+        return solveTheCrime;
+                
+    }
+    
 }

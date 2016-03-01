@@ -47,31 +47,42 @@ public class HelpMenuView {
         
     }   
 
-    private void doAction(char selection) {
+    
+    
+    private boolean doAction(char selection) {
         
         switch (selection){
 
           case 'P':                         // purpose of the game
+          case 'p':
               this.showPurposeGame();       
              break;
           case 'M':                         // moving in the game
+          case 'm':
                this.showHowToMove();         
             break;
           case 'T':                            // calculate time since death
+          case 't':
                 this.calcTimeSinceDeath(); 
             break;  
           case 'D':                            // calculate celsius to fahrenheit
+          case 'd':
                this.celsiusToFahrenheit(); 
             break;
           case 'V':                            // validate a suspect's alibi
+          case 'v':
                this.validateAlibi();  
             break;
-          case 'E':                            // exit help
-               this.exit();
-             break;
+          case 'E':                            // validate a suspect"s alibi
+          case 'e':
+              this.exit();  
+            break;
           default:
-               System.out.println("*** Invalid selection *** Try again");
+               System.out.println("*** Help Invalid selection *** Try again");
+               break;
         }
+        
+        return false;
     }
     
     
@@ -129,8 +140,8 @@ public class HelpMenuView {
         }
         
         private void exit(){            
+            
             MainMenuView mainMenuView = new MainMenuView();
-                
             mainMenuView.displayMainMenuView();
         }
 
