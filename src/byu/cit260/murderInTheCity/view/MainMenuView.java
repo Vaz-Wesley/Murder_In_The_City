@@ -5,9 +5,6 @@
  */
 package byu.cit260.murderInTheCity.view;
 
-import java.util.Scanner;
-
-
 /**
  *
  * @author Wesley Vaz_2
