@@ -11,12 +11,19 @@ package byu.cit260.murderInTheCity.control;
  */
 public class PoliceOfficeSceneControl {
     
-        // case name list which will be substituted by a switch statement
-    String caseNameList= "walking in the park";
+    public static String returnFunction(){
+        boolean getCaseName = true;
+        double playerProgress = 100;
+        
+        String value = solveCrime(getCaseName, playerProgress);
+        return value;
+    }
     
-    public String solveCrime(String caseName, double playerProgress){
+    public static String solveCrime(boolean getCaseName, double playerProgress){
     
-        if (caseName != caseNameList) { // does name match a case in the list?
+        boolean done = false;
+        
+        if (getCaseName == done) { // does name match a case in the list?
             return "Case Name Does Not Exist";
         }
         
@@ -29,6 +36,6 @@ public class PoliceOfficeSceneControl {
         
         return solveTheCrime;
                 
-    }
+        }
     
-}
+    }

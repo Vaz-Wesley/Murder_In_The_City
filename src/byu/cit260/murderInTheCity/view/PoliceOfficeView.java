@@ -47,7 +47,8 @@ public class PoliceOfficeView extends View {
         }
         
         private void solveCrime(){            
-            System.out.println("*** laboratory function called ***");
+            SolveCrimeView solveCrimeView = new SolveCrimeView();
+            solveCrimeView.display();
         }
     
 }

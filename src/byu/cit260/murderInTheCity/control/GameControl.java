@@ -16,7 +16,6 @@ public class GameControl {
     
     public static Player createPlayer(String name){
         
-        //System.out.println("\n*** creatPlayer() function called ***");
          if (name == null){
             return null;            
         }

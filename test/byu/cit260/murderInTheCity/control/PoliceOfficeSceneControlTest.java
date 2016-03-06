@@ -40,7 +40,7 @@ public class PoliceOfficeSceneControlTest {
         System.out.println("\tTest Case #1");
         
         // input values
-        String caseName = "walking in the park";
+        boolean getCaseName = true;
         double playerProgress = 100;
         
         // output value expected
@@ -50,7 +50,7 @@ public class PoliceOfficeSceneControlTest {
         PoliceOfficeSceneControl instance = new PoliceOfficeSceneControl();
         
         // call function to run test
-        String result = instance.solveCrime(caseName, playerProgress);
+        String result = instance.solveCrime(getCaseName, playerProgress);
         
         // compare expected return value with actual calue returned
         assertEquals(expResult, result);
@@ -62,7 +62,7 @@ public class PoliceOfficeSceneControlTest {
         System.out.println("\tTest Case #2");
         
         // input values
-       caseName = "walking the park";
+       getCaseName = false;
        playerProgress = 100;
         
         // output value expected
@@ -72,7 +72,7 @@ public class PoliceOfficeSceneControlTest {
        instance = new PoliceOfficeSceneControl();
         
         // call function to run test
-       result = instance.solveCrime(caseName, playerProgress);
+       result = instance.solveCrime(getCaseName, playerProgress);
         
         // compare expected return value with actual calue returned
         assertEquals(expResult, result);
@@ -84,7 +84,7 @@ public class PoliceOfficeSceneControlTest {
         System.out.println("\tTest Case #3");
         
         // input values
-       caseName = "walking in the park";
+       getCaseName = true;
        playerProgress = 88;
         
         // output value expected
@@ -94,7 +94,7 @@ public class PoliceOfficeSceneControlTest {
        instance = new PoliceOfficeSceneControl();
         
         // call function to run test
-       result = instance.solveCrime(caseName, playerProgress);
+       result = instance.solveCrime(getCaseName, playerProgress);
         
         // compare expected return value with actual calue returned
         assertEquals(expResult, result);
@@ -106,17 +106,17 @@ public class PoliceOfficeSceneControlTest {
         System.out.println("\tTest Case #4");
         
         // input values
-       caseName = "";
-       playerProgress = 88;
+       getCaseName = true;
+       playerProgress = 100;
         
         // output value expected
-       expResult = "Case Name Does Not Exist";
+       expResult = "Crime Solved";
         
         // instance of LabSceneControl class
        instance = new PoliceOfficeSceneControl();
         
         // call function to run test
-       result = instance.solveCrime(caseName, playerProgress);
+       result = instance.solveCrime(getCaseName, playerProgress);
         
         // compare expected return value with actual calue returned
         assertEquals(expResult, result);
