@@ -18,8 +18,6 @@ public class Map implements Serializable{
 
     public Map() {
     }
-    
-    
 
     public int getRowCount() {
         return rowCount;

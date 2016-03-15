@@ -5,6 +5,9 @@
  */
 package byu.cit260.murderInTheCity.view;
 
+import byu.cit260.murderInTheCity.control.GameControl;
+import byu.cit260.murderInTheCity.model.MurderInTheCity;
+
 /**
  *
  * @author Wesley Vaz_2
@@ -54,6 +57,10 @@ public class MainMenuView extends View {
     
         private void startNewGame(){
             
+            //create a new game
+            GameControl.createNewGame(MurderInTheCity.getPlayer());
+            
+            //display the game plya menu
             GamePlayMenuView gamePlayMenu = new GamePlayMenuView();
             gamePlayMenu.display();
         }

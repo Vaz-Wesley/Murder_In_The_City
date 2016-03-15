@@ -10,15 +10,13 @@ import java.util.Objects;
 
 /**
  *
- * @author W
+ * @author Wesley_Vaz
  */
-public class CasesSolved implements Serializable{
+public class CaseSolved implements Serializable{
     private String caseName;
-    private String date;
 
-    public CasesSolved() {
+    public CaseSolved() {
     }
-    
 
     public String getCaseName() {
         return caseName;
@@ -28,25 +26,16 @@ public class CasesSolved implements Serializable{
         this.caseName = caseName;
     }
 
-    public String getDate() {
-        return date;
-    }
-
-    public void setDate(String date) {
-        this.date = date;
-    }
-
     @Override
     public int hashCode() {
         int hash = 5;
         hash = 29 * hash + Objects.hashCode(this.caseName);
-        hash = 29 * hash + Objects.hashCode(this.date);
         return hash;
     }
 
     @Override
     public String toString() {
-        return "CasesSolved{" + "caseName=" + caseName + ", date=" + date + '}';
+        return "CasesSolved{" + "caseName=" + caseName +'}';
     }
     
     @Override
@@ -60,11 +49,8 @@ public class CasesSolved implements Serializable{
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final CasesSolved other = (CasesSolved) obj;
+        final CaseSolved other = (CaseSolved) obj;
         if (!Objects.equals(this.caseName, other.caseName)) {
-            return false;
-        }
-        if (!Objects.equals(this.date, other.date)) {
             return false;
         }
         return true;

@@ -19,8 +19,6 @@ public class SuspectList implements Serializable{
 
     public SuspectList() {
     }
-    
-    
 
     public String getSuspectName() {
         return suspectName;

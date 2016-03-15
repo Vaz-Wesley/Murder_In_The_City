@@ -5,10 +5,21 @@
  */
 package byu.cit260.murderInTheCity.control;
 
+import byu.cit260.murderInTheCity.model.Map;
+
 /**
  *
  * @author Wesley Vaz_2
  */
 public class MapControl {
     
+    public static Map createMap(){
+        System.out.println("*** called createMap() in GameControl ***");
+        return null;
+    }
+    
+    public static Map moveActorToStartingLocation(Map map){
+        System.out.println("*** called moveActorToStartingLocation() in GameControl ***");
+        return null;
+    }
 }

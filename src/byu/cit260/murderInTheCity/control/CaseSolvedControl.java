@@ -9,6 +9,6 @@ package byu.cit260.murderInTheCity.control;
  *
  * @author Wady Tupiza
  */
-public class CasesSolvedControl {
+public class CaseSolvedControl {
     
 }

@@ -18,7 +18,9 @@ public class SolveCrimeView extends View {
             + "\n -------------------------------------------"
             + "\n  Solve A Crime                             "
             + "\n -------------------------------------------"
-            + "\n Enter Case Name or E - Exit                ");
+            + "\n Enter Case Name or E - Exit                "
+            + "\n -------------------------------------------");
+            
     }
     
     @Override
@@ -27,7 +29,7 @@ public class SolveCrimeView extends View {
         caseName = caseName.toUpperCase();
         
         switch (caseName){
-            case "P":                            
+            case "Park":                            
                this.solveCrime();
                break;
             case "B":                           

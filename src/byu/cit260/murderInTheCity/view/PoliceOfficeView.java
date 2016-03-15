@@ -18,7 +18,8 @@ public class PoliceOfficeView extends View {
             + "\n -------------------------------------------"
             + "\n I - Interrogate Suspect                    "
             + "\n S - Solve Crime                            "
-            + "\n E - Exit                                   ");
+            + "\n E - Exit                                   "
+            + "\n -------------------------------------------");
     }
     
     @Override

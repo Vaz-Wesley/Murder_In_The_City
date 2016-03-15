@@ -6,6 +6,7 @@
 package byu.cit260.murderInTheCity.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Objects;
 
 /**
@@ -16,11 +17,16 @@ public class Game implements Serializable{
     
     private String timePlayed;
     private String noPeople;
+    
+    private Map map;
+    private Player player;
+    private Personage[] personage;
+    private CaseSolved[] caseSolved;
+    private PiecesOfEvidence[] piecesOfEvidence;
+    private SuspectList[] suspectList;
 
     public Game() {
     }
-    
-    
 
     public String getTimePlayed() {
         return timePlayed;
@@ -38,6 +44,56 @@ public class Game implements Serializable{
         this.noPeople = noPeople;
     }
 
+    public Map getMap() {
+        return map;
+    }
+
+    public void setMap(Map map) {
+        this.map = map;
+    }
+
+    public Player getPlayer() {
+        return player;
+    }
+
+    public void setPlayer(Player player) {
+        this.player = player;
+    }
+
+    public Personage[] getPersonage() {
+        return personage;
+    }
+
+    public void setPersonage(Personage[] personage) {
+        this.personage = personage;
+    }
+
+    public CaseSolved[] getCaseSolved() {
+        return caseSolved;
+    }
+
+    public void setCaseSolved(CaseSolved[] caseSolved) {
+        this.caseSolved = caseSolved;
+    }
+
+    public PiecesOfEvidence[] getPiecesOfEvidence() {
+        return piecesOfEvidence;
+    }
+
+    public void setPiecesOfEvidence(PiecesOfEvidence[] piecesOfEvidence) {
+        this.piecesOfEvidence = piecesOfEvidence;
+    }
+
+    public SuspectList[] getSuspectList() {
+        return suspectList;
+    }
+
+    public void setSuspectList(SuspectList[] suspectList) {
+        this.suspectList = suspectList;
+    }
+    
+    
+    
     @Override
     public int hashCode() {
         int hash = 5;
@@ -71,9 +127,4 @@ public class Game implements Serializable{
     public String toString() {
         return "Game{" + "timePlayed=" + timePlayed + ", noPeople=" + noPeople + '}';
     }
-    
-    
-    
-    
-    
 }

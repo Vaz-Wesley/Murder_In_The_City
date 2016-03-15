@@ -46,8 +46,9 @@ public abstract class View implements ViewInterface{
         
         while (!valid) { // loop while an invalid value is entered
             
-            // prompt for the players name
+            // prompt for an option
             System.out.println("\n" +  this.displayMessage);
+            System.out.println("\nChoose an Option:");
             
             value = keyboard.nextLine(); // get next lyne typed on keyboard
             value = value.trim(); // trim off leading and trailing blanks

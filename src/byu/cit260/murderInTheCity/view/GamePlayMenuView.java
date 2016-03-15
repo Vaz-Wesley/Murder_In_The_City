@@ -5,6 +5,9 @@
  */
 package byu.cit260.murderInTheCity.view;
 
+import byu.cit260.murderInTheCity.control.GameControl;
+import byu.cit260.murderInTheCity.model.PiecesOfEvidence;
+
 /**
  *
  * @author Wady Tupiza
@@ -17,7 +20,7 @@ public class GamePlayMenuView extends View {
                     + "\n  Game Play Menu                      "
                     + "\n -------------------------------------"
                     + "\n C – View city locations              "
-                    + "\n E - List of pieces evidence          "
+                    + "\n O - List of pieces evidence          "
                     + "\n L – Suspect List                     "
                     + "\n Z - Solve the crime                  "
                     + "\n M - Move to a new location           "
@@ -26,7 +29,8 @@ public class GamePlayMenuView extends View {
                     + "\n U - Resume game                      "
                     + "\n R - Restart game                     "
                     + "\n G - Save game                        "
-                    + "\n E - Exit game                        ");     
+                    + "\n E - Exit game                        "     
+                    + "\n -------------------------------------");
     }
     
     @Override
@@ -87,11 +91,23 @@ public class GamePlayMenuView extends View {
     }
 
     private void viewCityLocations() {
-        System.out.println("*** viewCityLocations called***");
+            System.out.println("*** viewCityLocations called***");
     }
 
     private void listOfPiecesOfEvidence() {
-        System.out.println("*** listOfPiecesOfEvidence called***");
+        
+        PiecesOfEvidence[] piecesOfEvidence = GameControl.getSortedPiecesOfEvidence();
+        
+        System.out.println("\nList of Pieces Of Evidence");
+        System.out.println("Evidence Name" + "\t" +
+                           "Evidence Type" + "\t" +
+                           "Evidence Origin");
+        
+        for (PiecesOfEvidence evidence : piecesOfEvidence ){
+            System.out.println(evidence.getEvidenceName() + "\t  " +
+                               evidence.getEvidenceType() + "\t  " +
+                               evidence.getEvidenceOrigin());
+        }
     }
 
     private void suspectList() {
