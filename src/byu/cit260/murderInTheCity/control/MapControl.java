@@ -18,8 +18,4 @@ public class MapControl {
         return null;
     }
     
-    public static Map moveActorToStartingLocation(Map map){
-        System.out.println("*** called moveActorToStartingLocation() in GameControl ***");
-        return null;
-    }
 }

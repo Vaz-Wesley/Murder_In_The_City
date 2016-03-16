@@ -37,5 +37,4 @@ public class PoliceOfficeSceneControl {
         return solveTheCrime;
                 
         }
-    
     }

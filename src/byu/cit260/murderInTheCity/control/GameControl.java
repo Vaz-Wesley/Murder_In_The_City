@@ -50,8 +50,6 @@ public class GameControl {
         
         Map map = MapControl.createMap();
         game.setMap(map);
-        
-        MapControl.moveActorToStartingLocation(map);    
     }
     
     public enum Personages{

@@ -10,5 +10,4 @@ package byu.cit260.murderInTheCity.control;
  * @author Wesley Vaz_2
  */
 public class PiecesOfEvidenceControl {
-    
 }

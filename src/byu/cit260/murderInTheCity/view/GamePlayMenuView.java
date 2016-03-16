@@ -20,9 +20,8 @@ public class GamePlayMenuView extends View {
                     + "\n  Game Play Menu                      "
                     + "\n -------------------------------------"
                     + "\n C – View city locations              "
-                    + "\n O - List of pieces evidence          "
+                    + "\n O - List of pieces of evidence       "
                     + "\n L – Suspect List                     "
-                    + "\n Z - Solve the crime                  "
                     + "\n M - Move to a new location           "
                     + "\n P - Professional progression         "
                     + "\n H - Get help                         "
@@ -51,10 +50,6 @@ public class GamePlayMenuView extends View {
           case "L":                            // Suspect List
           case "l":
                 this.suspectList(); 
-          case "Z":                            // Suspect List
-          case "z":
-                this.solveCrime(); 
-            break;
           case "M":                            // Move to a new location
           case "m":
                 this.moveToNewLocation(); 
@@ -112,10 +107,6 @@ public class GamePlayMenuView extends View {
 
     private void suspectList() {
         System.out.println("*** suspectList called***");
-    }
-    
-    private void solveCrime() {
-        System.out.println("*** solveCrime called***");
     }
 
     private void moveToNewLocation() {   
