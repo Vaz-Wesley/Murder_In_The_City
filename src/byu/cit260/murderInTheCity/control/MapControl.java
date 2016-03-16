@@ -6,6 +6,7 @@
 package byu.cit260.murderInTheCity.control;
 
 import byu.cit260.murderInTheCity.model.Map;
+import java.util.ArrayList;
 
 /**
  *
@@ -13,9 +14,43 @@ import byu.cit260.murderInTheCity.model.Map;
  */
 public class MapControl {
     
-    public static Map createMap(){
-        System.out.println("*** called createMap() in GameControl ***");
-        return null;
+    public static String map;
+    
+    public static String cityView(){
+       
+                map = ("\n"
+                    + "\n -------------------------------------"
+                    + "\n  City Locations                      "
+                    + "\n -------------------------------------"
+                    + "\n Police Office                        "
+                    + "\n Laboratory                           "
+                    + "\n Billionaire Cassino                  "
+                    + "\n Black Rock Stadium                   "
+                    + "\n Kid Mania Park                       "
+                    + "\n -------------------------------------");
+        
+        return map;
+    }
+       
+   /* public enum Locations{
+        cassino,
+        stadium,
+        park;
     }
     
+    public static ArrayList<Map> addLocation(){
+        
+        ArrayList<Map> locationName = new ArrayList<>();
+        
+        locationName.add(Locations.cassino.ordinal(), new Map("Cassino"));
+        locationName.add(Locations.stadium.ordinal(), new Map("Stadium"));
+        locationName.add(Locations.park.ordinal(), new Map("Kid Mania Park"));
+        
+        return locationName;
+    }
+    
+    public void removeLocation(ArrayList<Map> location, Map place) {
+    
+            location.remove(place); //remove by an object reference
+     }*/
 }

@@ -6,6 +6,7 @@
 package byu.cit260.murderInTheCity.view;
 
 import byu.cit260.murderInTheCity.control.GameControl;
+import byu.cit260.murderInTheCity.control.MapControl;
 import byu.cit260.murderInTheCity.model.PiecesOfEvidence;
 
 /**
@@ -24,7 +25,6 @@ public class GamePlayMenuView extends View {
                     + "\n L – Suspect List                     "
                     + "\n M - Move to a new location           "
                     + "\n P - Professional progression         "
-                    + "\n H - Get help                         "
                     + "\n U - Resume game                      "
                     + "\n R - Restart game                     "
                     + "\n G - Save game                        "
@@ -58,10 +58,6 @@ public class GamePlayMenuView extends View {
           case "p":
                this.professionalProgress(); 
             break;
-          case "H":                            // Get help
-          case "h":
-              this.getHelp();  
-            break;
           case "U":                            // Resume game
           case "u":
                 this.resumeGame(); 
@@ -85,11 +81,28 @@ public class GamePlayMenuView extends View {
         return false;
     }
 
-    private void viewCityLocations() {
-            System.out.println("*** viewCityLocations called***");
+    public void viewCityLocations(){
+        
+        String cityView = MapControl.cityView();
+        System.out.println(cityView);
+        
+        /*public void viewCityLocations(ArrayList<Map> place) {
+
+            for (Map location : place ) {
+
+                System.out.println(   "\n"
+                                    + "\n -------------------------------------"
+                                    + "\n  City Locations (So Far)             "
+                                    + "\n -------------------------------------"
+                                    + "\n Police Office                        "
+                                    + "\n Laboratory                           "
+                                    + "\n" + location.getLocationName());
+            }
+        }
+    */    
     }
 
-    private void listOfPiecesOfEvidence() {
+    public void listOfPiecesOfEvidence() {
         
         PiecesOfEvidence[] piecesOfEvidence = GameControl.getSortedPiecesOfEvidence();
         
@@ -117,10 +130,6 @@ public class GamePlayMenuView extends View {
 
     private void professionalProgress() {
         System.out.println("*** professionalProgress called***");
-    }
-
-    private void getHelp() {
-        System.out.println("*** getHelp called***");
     }
 
     private void resumeGame() {

@@ -6,6 +6,7 @@
 package byu.cit260.murderInTheCity.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Objects;
 
 /**
@@ -17,12 +18,12 @@ public class Game implements Serializable{
     private String timePlayed;
     private String noPeople;
     
-    private Map map;
     private Player player;
-    private Personage[] personage;
-    private CaseSolved[] caseSolved;
-    private PiecesOfEvidence[] piecesOfEvidence;
     private SuspectList[] suspectList;
+    private Cases[] cases;
+    private PiecesOfEvidence[] piecesOfEvidence;
+    //private ArrayList<SuspectList> suspectList;
+    private ArrayList<Map> map;
 
     public Game() {
     }
@@ -43,12 +44,12 @@ public class Game implements Serializable{
         this.noPeople = noPeople;
     }
 
-    public Map getMap() {
+    public ArrayList<Map> getMap() {
         return map;
     }
 
-    public void setMap(Map map) {
-        this.map = map;
+    public void setMap(ArrayList<Map> location) {
+        this.map = location;
     }
 
     public Player getPlayer() {
@@ -59,20 +60,12 @@ public class Game implements Serializable{
         this.player = player;
     }
 
-    public Personage[] getPersonage() {
-        return personage;
+    public Cases[] getCaseSolved() {
+        return cases;
     }
 
-    public void setPersonage(Personage[] personage) {
-        this.personage = personage;
-    }
-
-    public CaseSolved[] getCaseSolved() {
-        return caseSolved;
-    }
-
-    public void setCaseSolved(CaseSolved[] caseSolved) {
-        this.caseSolved = caseSolved;
+    public void setCases(Cases[] caseSolved) {
+        this.cases = cases;
     }
 
     public PiecesOfEvidence[] getPiecesOfEvidence() {
@@ -90,8 +83,6 @@ public class Game implements Serializable{
     public void setSuspectList(SuspectList[] suspectList) {
         this.suspectList = suspectList;
     }
-    
-    
     
     @Override
     public int hashCode() {

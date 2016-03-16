@@ -5,9 +5,36 @@
  */
 package byu.cit260.murderInTheCity.control;
 
+import byu.cit260.murderInTheCity.model.PiecesOfEvidence;
+
 /**
  *
  * @author Wesley Vaz_2
  */
+
 public class PiecesOfEvidenceControl {
+    
+    public enum Evidences{
+        knife,
+        blood;
+    }
+    
+    public static PiecesOfEvidence[] createPiecesOfEvidence(){
+        
+        PiecesOfEvidence[] piecesOfEvidence = new PiecesOfEvidence[50];
+        
+        PiecesOfEvidence knife = new PiecesOfEvidence();
+        knife.setEvidenceName("Knife");
+        knife.setEvidenceType("Object");
+        knife.setEvidenceOrigin("Kid Mania Park");
+        piecesOfEvidence[Evidences.knife.ordinal()] = knife;
+        
+        PiecesOfEvidence blood = new PiecesOfEvidence();
+        blood.setEvidenceName("Blood");
+        blood.setEvidenceType("Organic");
+        blood.setEvidenceOrigin("Kid Mania Park");
+        piecesOfEvidence[Evidences.blood.ordinal()] = blood;
+        
+        return piecesOfEvidence;
+    }
 }

@@ -5,13 +5,14 @@
  */
 package byu.cit260.murderInTheCity.control;
 
-import byu.cit260.murderInTheCity.model.CaseSolved;
+import byu.cit260.murderInTheCity.model.Cases;
 import byu.cit260.murderInTheCity.model.Game;
 import byu.cit260.murderInTheCity.model.Map;
 import byu.cit260.murderInTheCity.model.MurderInTheCity;
-import byu.cit260.murderInTheCity.model.Personage;
 import byu.cit260.murderInTheCity.model.PiecesOfEvidence;
 import byu.cit260.murderInTheCity.model.Player;
+import byu.cit260.murderInTheCity.model.SuspectList;
+import java.util.ArrayList;
 
 /**
  *
@@ -39,73 +40,20 @@ public class GameControl {
         
         game.setPlayer(player);
         
-        Personage[] personage = GameControl.createPersonage();
-        game.setPersonage(personage);
+        SuspectList[] suspectList = SuspectListControl.createSuspectList();
+        game.setSuspectList(suspectList);
         
-        CaseSolved[] caseSolved = GameControl.createCaseSolved();
-        game.setCaseSolved(caseSolved);
+        Cases[] cases = CasesControl.createCases();
+        game.setCases(cases);
         
-        PiecesOfEvidence[] piecesOfEvidence = GameControl.createPiecesOfEvidence();
+        PiecesOfEvidence[] piecesOfEvidence = PiecesOfEvidenceControl.createPiecesOfEvidence();
         game.setPiecesOfEvidence(piecesOfEvidence);
         
-        Map map = MapControl.createMap();
-        game.setMap(map);
-    }
-    
-    public enum Personages{
-        daniel,
-        ralph;
-    }
-    
-    public static PiecesOfEvidence[] createPiecesOfEvidence(){
+       // ArrayList<SuspectList> suspectList = SuspectListControl.addSuspect();
+       // game.setSuspectList(suspectList);
         
-        PiecesOfEvidence[] piecesOfEvidence = new PiecesOfEvidence[50];
-        
-        PiecesOfEvidence knife = new PiecesOfEvidence();
-        knife.setEvidenceName("Knife");
-        knife.setEvidenceType("Object");
-        knife.setEvidenceOrigin("To be Set");
-        piecesOfEvidence[0] = knife;
-        
-        PiecesOfEvidence blood = new PiecesOfEvidence();
-        blood.setEvidenceName("Blood");
-        blood.setEvidenceType("Organic");
-        blood.setEvidenceOrigin("To be Set");
-        piecesOfEvidence[1] = blood;
-        
-        return piecesOfEvidence;
-    }
-    
-    public static CaseSolved[] createCaseSolved(){
-        
-        //created array of case solved
-        CaseSolved[] caseSolved = new CaseSolved[10];
-        
-        CaseSolved thePark = new CaseSolved();
-        thePark.setCaseName("Walking in the Park");
-        caseSolved[0] = thePark;
-        
-        return caseSolved;
-    }
-    
-    public static Personage[] createPersonage(){
-        
-        //created array of personages 
-        Personage[] personage = new Personage[20];
-        
-        Personage daniel = new Personage();
-        daniel.setPersonageType("Suspect");
-        daniel.setPersonageName("Daniel");
-        daniel.setDescription("Description Here");
-        personage[Personages.daniel.ordinal()] = daniel;
-        
-        Personage ralph = new Personage();
-        ralph.setPersonageType("Suspect");
-        ralph.setPersonageName("Ralph");
-        ralph.setDescription("Description Here");
-        personage[Personages.ralph.ordinal()] = ralph;
-        
-        return personage;
+        // = MapControl.addLocation();
+        //game.setMap(location);
     }
     
     public static PiecesOfEvidence[] getSortedPiecesOfEvidence(){

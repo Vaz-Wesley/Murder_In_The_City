@@ -12,10 +12,10 @@ import java.util.Objects;
  *
  * @author Wesley_Vaz
  */
-public class CaseSolved implements Serializable{
+public class Cases implements Serializable{
     private String caseName;
 
-    public CaseSolved() {
+    public Cases() {
     }
 
     public String getCaseName() {
@@ -37,7 +37,7 @@ public class CaseSolved implements Serializable{
     public String toString() {
         return "CasesSolved{" + "caseName=" + caseName +'}';
     }
-    
+
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -49,12 +49,14 @@ public class CaseSolved implements Serializable{
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final CaseSolved other = (CaseSolved) obj;
+        final Cases other = (Cases) obj;
         if (!Objects.equals(this.caseName, other.caseName)) {
             return false;
         }
         return true;
     }
+    
+   
     
     
 }
