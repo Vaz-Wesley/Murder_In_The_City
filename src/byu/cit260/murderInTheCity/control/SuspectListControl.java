@@ -5,8 +5,6 @@
  */
 package byu.cit260.murderInTheCity.control;
 
-import byu.cit260.murderInTheCity.model.Personage;
-import byu.cit260.murderInTheCity.model.PiecesOfEvidence;
 import byu.cit260.murderInTheCity.model.SuspectList;
 import java.util.ArrayList;
 
@@ -15,6 +13,17 @@ import java.util.ArrayList;
  * @author Wesley Vaz_2
  */
 public class SuspectListControl {
+    
+    public SuspectListControl(SuspectList[] value ){
+        
+        for (int i = 0; i < list.length-1; ++i){
+            if ( list[i] == value){
+                return i;
+            }
+            
+            return -1;
+        }
+    }
     
      public enum Suspects{
         daniel,

@@ -32,7 +32,7 @@ public class PiecesOfEvidenceControl {
         PiecesOfEvidence blood = new PiecesOfEvidence();
         blood.setEvidenceName("Blood");
         blood.setEvidenceType("Organic");
-        blood.setEvidenceOrigin("Kid Mania Park");
+        blood.setEvidenceOrigin("Daniel");
         piecesOfEvidence[Evidences.blood.ordinal()] = blood;
         
         return piecesOfEvidence;
