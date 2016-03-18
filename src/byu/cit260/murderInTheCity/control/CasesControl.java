@@ -14,17 +14,27 @@ import byu.cit260.murderInTheCity.model.Cases;
 public class CasesControl {
     
     public enum casesList{
-        park;
+        park,
+        cassino,
+        stadium;
     }
     
     public static Cases[] createCases(){
         
         //created array of case solved
-        Cases[] caseSolved = new Cases[10];
+        Cases[] caseSolved = new Cases[3];
         
         Cases park = new Cases();
-        park.setCaseName("Walking in the Park");
+        park.setCaseName("The Park");
         caseSolved[casesList.park.ordinal()] = park;
+        
+        Cases cassino = new Cases();
+        cassino.setCaseName("The Billionaire");
+        caseSolved[casesList.cassino.ordinal()] = cassino;
+        
+        Cases stadium = new Cases();
+        stadium.setCaseName("The Billionaire");
+        caseSolved[casesList.stadium.ordinal()] = stadium;
         
         return caseSolved;
     }

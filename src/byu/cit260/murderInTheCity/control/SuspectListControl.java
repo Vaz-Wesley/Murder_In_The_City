@@ -14,15 +14,17 @@ import java.util.ArrayList;
  */
 public class SuspectListControl {
     
-    public SuspectListControl(SuspectList[] value ){
+    public static String checkList(){
         
-        for (int i = 0; i < list.length-1; ++i){
-            if ( list[i] == value){
-                return i;
-            }
-            
-            return -1;
+        SuspectList[] suspects = createSuspectList();
+        
+        String values ="";
+        
+        for (int i = 0; i < suspects.length; i++){
+            values += "\nSuspect Name: " + suspects[i].getSuspectName() + "\n" +
+                        "Case Involved: " + suspects[i].getCaseInvolved() + "\n";
         }
+        return values; 
     }
     
      public enum Suspects{
@@ -35,27 +37,27 @@ public class SuspectListControl {
     public static SuspectList[] createSuspectList(){
         
         //created array of personages 
-        SuspectList[] suspectList = new SuspectList[20];
+        SuspectList[] suspectList = new SuspectList[4];
         
         SuspectList daniel = new SuspectList();
-        daniel.setSuspectName("Suspect");
-        daniel.setCaseInvolved("Daniel");
+        daniel.setSuspectName("Daniel");
+        daniel.setCaseInvolved("The Park");
         suspectList[Suspects.daniel.ordinal()] = daniel;
         
         SuspectList ralph = new SuspectList();
-        ralph.setSuspectName("Suspect");
-        ralph.setCaseInvolved("Ralph");
+        ralph.setSuspectName("Ralph");
+        ralph.setCaseInvolved("The Billionaire");
         suspectList[Suspects.ralph.ordinal()] = ralph;
         
         SuspectList chris = new SuspectList();
-        chris.setSuspectName("Suspect");
-        chris.setCaseInvolved("Chris");
-        suspectList[Suspects.chris.ordinal()] = ralph;
+        chris.setSuspectName("Chris");
+        chris.setCaseInvolved("The Stadium");
+        suspectList[Suspects.chris.ordinal()] = chris;
         
         SuspectList giulliani = new SuspectList();
-        giulliani.setSuspectName("Suspect");
-        giulliani.setCaseInvolved("Giulliani");
-        suspectList[Suspects.giulliani.ordinal()] = ralph;
+        giulliani.setSuspectName("Giulliani");
+        giulliani.setCaseInvolved("The Stadium");
+        suspectList[Suspects.giulliani.ordinal()] = giulliani;
         
         return suspectList;
     }

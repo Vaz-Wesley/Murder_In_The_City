@@ -7,6 +7,7 @@ package byu.cit260.murderInTheCity.view;
 
 import byu.cit260.murderInTheCity.control.GameControl;
 import byu.cit260.murderInTheCity.control.MapControl;
+import byu.cit260.murderInTheCity.control.SuspectListControl;
 import byu.cit260.murderInTheCity.model.PiecesOfEvidence;
 
 /**
@@ -50,6 +51,7 @@ public class GamePlayMenuView extends View {
           case "L":                            // Suspect List
           case "l":
                 this.suspectList(); 
+             break;
           case "M":                            // Move to a new location
           case "m":
                 this.moveToNewLocation(); 
@@ -119,7 +121,8 @@ public class GamePlayMenuView extends View {
     }
 
     private void suspectList() {
-        System.out.println("*** suspectList called***");
+        String checkList = SuspectListControl.checkList();
+        System.out.println(checkList);
     }
 
     private void moveToNewLocation() {   
