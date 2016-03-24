@@ -5,36 +5,25 @@
  */
 package byu.cit260.murderInTheCity.control;
 
+
+import byu.cit260.murderInTheCity.exceptions.CasesControlException;
+import byu.cit260.murderInTheCity.view.SolveCrimeView;
+
 /**
  *
  * @author Wesley Vaz_2
  */
 public class PoliceOfficeSceneControl {
     
-    public static String returnFunction(){
-        boolean getCaseName = true;
+    public static void solveCrime() throws CasesControlException{
+        
+        //boolean casesReturn = 
+        CasesControl.checkList();
         double playerProgress = 100;
         
-        String value = solveCrime(getCaseName, playerProgress);
-        return value;
+        //if (casesReturn == true){
+          //  return true;
+       // }
+        
     }
-    
-    public static String solveCrime(boolean getCaseName, double playerProgress){
-    
-        boolean done = false;
-        
-        if (getCaseName == done) { // does name match a case in the list?
-            return "Case Name Does Not Exist";
-        }
-        
-	if (playerProgress < 100) { // Is progress less than 100%?
-            return "Player Progress Not 100";
-        }
-        
-        // expression
-	String solveTheCrime = "Crime Solved";
-        
-        return solveTheCrime;
-                
-        }
-    }
+}

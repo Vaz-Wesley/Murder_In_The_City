@@ -6,6 +6,8 @@
 package byu.cit260.murderInTheCity.control;
 
 import byu.cit260.murderInTheCity.model.Cases;
+import byu.cit260.murderInTheCity.exceptions.CasesControlException;
+import byu.cit260.murderInTheCity.view.SolveCrimeView;
 
 /**
  *
@@ -13,13 +15,29 @@ import byu.cit260.murderInTheCity.model.Cases;
  */
 public class CasesControl {
     
+    public static void checkList() throws CasesControlException{
+        
+        Cases[] caseList = createCases();
+        
+        SolveCrimeView instance = new SolveCrimeView();
+        String caseSolved = instance.getInput();
+        
+        for (int i = 0; i < caseList.length; i++){       
+            String caseName = caseList[i].getCaseName();
+            
+            if(!caseSolved.equals(caseName))
+                throw new CasesControlException("Case Does Not Exist");
+        }
+       
+    }
+    
     public enum casesList{
         park,
         cassino,
         stadium;
     }
     
-    public static Cases[] createCases(){
+    public static  Cases[] createCases(){
         
         //created array of case solved
         Cases[] caseSolved = new Cases[3];
@@ -33,7 +51,7 @@ public class CasesControl {
         caseSolved[casesList.cassino.ordinal()] = cassino;
         
         Cases stadium = new Cases();
-        stadium.setCaseName("The Billionaire");
+        stadium.setCaseName("The Stadium");
         caseSolved[casesList.stadium.ordinal()] = stadium;
         
         return caseSolved;

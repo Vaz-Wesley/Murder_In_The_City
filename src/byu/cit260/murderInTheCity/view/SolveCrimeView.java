@@ -6,6 +6,7 @@
 package byu.cit260.murderInTheCity.view;
 
 import byu.cit260.murderInTheCity.control.PoliceOfficeSceneControl;
+import byu.cit260.murderInTheCity.exceptions.CasesControlException;
 
 /**
  *
@@ -18,38 +19,37 @@ public class SolveCrimeView extends View {
             + "\n -------------------------------------------"
             + "\n  Solve A Crime                             "
             + "\n -------------------------------------------"
-            + "\n Enter Case Name or E - Exit                "
+            + "\n ENTER CASE NAME or                         "
+            + "\n E - Exit                                   "
             + "\n -------------------------------------------");
-            
     }
     
+    
     @Override
-    public boolean doAction(String caseName){
-                
-        caseName = caseName.toUpperCase();
+     public boolean doAction(String input){
+         
+        input = input.toUpperCase();
         
-        switch (caseName){
-            case "Park":                            
-               this.solveCrime();
-               break;
-            case "B":                           
-               this.solveCrime();
-               break;
-             case "C":                            
-               this.solveCrime();
-               break;
-            case "E":                            
-               return true;
-            default:
-               System.out.println("*** Invalid selection *** Try again");
+        try {
+            this.crimeCheckReturn();
+        } catch (CasesControlException me) {
+            System.out.println(me.getMessage());
+            return false;
         }
+        
+        if(!input.equals("E")) {
+            return true;
+        } 
         
         return false;
     }
     
-    private void solveCrime(){  
-        String crimeSolved = PoliceOfficeSceneControl.returnFunction();
-        System.out.println(crimeSolved);
+     private void crimeCheckReturn() throws CasesControlException {   
+         
+        //boolean solveCrimeReturn = 
+       PoliceOfficeSceneControl.solveCrime();
         
-        }
+    }
+    
 }
+

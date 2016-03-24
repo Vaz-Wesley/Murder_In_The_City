@@ -40,17 +40,17 @@ public class PoliceOfficeSceneControlTest {
         System.out.println("\tTest Case #1");
         
         // input values
-        boolean getCaseName = true;
+        boolean caseName = true;
         double playerProgress = 100;
         
         // output value expected
-        String expResult = "Crime Solved";
+        double expResult = 0;
         
         // instance of LabSceneControl class
         PoliceOfficeSceneControl instance = new PoliceOfficeSceneControl();
         
         // call function to run test
-        String result = instance.solveCrime(getCaseName, playerProgress);
+        String result = instance.solveCrime(caseName, playerProgress);
         
         // compare expected return value with actual calue returned
         assertEquals(expResult, result);

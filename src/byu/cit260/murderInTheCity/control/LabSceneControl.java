@@ -11,7 +11,7 @@ package byu.cit260.murderInTheCity.control;
  */
 public class LabSceneControl {
     
-    public double calcTimeSinceDeath(double avgBodyTemp, double currentBodyTemp, double heatLostPerHour){
+    public static double calcTimeSinceDeath(double avgBodyTemp, double currentBodyTemp, double heatLostPerHour){
     
         if (avgBodyTemp != 98.6) { // is average temperature different?
             return -1;

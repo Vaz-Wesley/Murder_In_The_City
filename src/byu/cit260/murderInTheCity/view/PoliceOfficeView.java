@@ -48,8 +48,8 @@ public class PoliceOfficeView extends View {
         }
         
         private void solveCrime(){            
-            SolveCrimeView solveCrimeView = new SolveCrimeView();
-            solveCrimeView.display();
+            SolveCrimeView instance = new SolveCrimeView();
+            instance.display();
         }
     
 }

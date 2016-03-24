@@ -53,7 +53,8 @@ public class MoveToNewLocationView extends View {
         }
         
         private void laboratory(){            
-            System.out.println("*** laboratory function called ***");
+            LaboratoryView laboratoryView = new LaboratoryView(); 
+            laboratoryView.getDoubleNumber();
         }
        
         private void crimeScene(){            
