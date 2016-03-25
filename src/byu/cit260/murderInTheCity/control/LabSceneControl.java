@@ -5,24 +5,26 @@
  */
 package byu.cit260.murderInTheCity.control;
 
+import byu.cit260.murderInTheCity.exceptions.LabSceneControlException;
+
 /**
  *
  * @author Wady Tupiza
  */
 public class LabSceneControl {
     
-    public static double calcTimeSinceDeath(double avgBodyTemp, double currentBodyTemp, double heatLostPerHour){
+    public static double calcTimeSinceDeath(double avgBodyTemp, double currentBodyTemp, double heatLostPerHour) throws LabSceneControlException{
     
         if (avgBodyTemp != 98.6) { // is average temperature different?
-            return -1;
+            throw new LabSceneControlException("Wrong Average Temperature *** 98.6 only");
         }
         
-	if (currentBodyTemp < 32 || currentBodyTemp > 98.6) { // is body temperature incorrect?
-            return -1;
+	if (currentBodyTemp < 32.0 || currentBodyTemp > 98.6) { // is body temperature incorrect?
+            throw new LabSceneControlException("Wrong Body Temperature *** 32f through 98.6 only");
         }
         
 	if (heatLostPerHour != 1.5) { // is heat lost / hour incorrect?
-            return -1;
+            throw new LabSceneControlException("Wrong Heat Lost/Hour *** 1.5 only");
         }
         
         // expression
@@ -32,18 +34,18 @@ public class LabSceneControl {
                 
     }
     
-    public double validateAlibi(double speedOfTravel, double milesTraveled, double minutesInAnHour) {
+    public static double validateAlibi(double speedOfTravel, double milesTraveled, double minutesInAnHour) throws LabSceneControlException {
         
         if (milesTraveled < 2 || milesTraveled > 60) {
-            return -1;
+            throw new LabSceneControlException("Invalid Miles Traveled *** 2 through 60 only");
         }
 	
         if (minutesInAnHour != 60) {
-            return -1;
+            throw new LabSceneControlException("Invalid Minutes in An Hour *** 60 minutes only");
         }
         
         if (speedOfTravel < 10 || speedOfTravel > 90 ) {
-            return -1;
+            throw new LabSceneControlException("Invalid Speed of Travel *** 10 through 90 mph only");
         }
     
 	double minutesOfTravel = milesTraveled / speedOfTravel * minutesInAnHour;

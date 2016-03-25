@@ -13,6 +13,7 @@ import java.util.Objects;
  * @author Wesley_Vaz
  */
 public class Cases implements Serializable{
+    
     private String caseName;
 
     public Cases() {

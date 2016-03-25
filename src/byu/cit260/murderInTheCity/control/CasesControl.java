@@ -15,19 +15,18 @@ import byu.cit260.murderInTheCity.view.SolveCrimeView;
  */
 public class CasesControl {
     
-    public static void checkList() throws CasesControlException{
+    public static boolean checkList(String input) throws CasesControlException{
         
         Cases[] caseList = createCases();
-        
-        SolveCrimeView instance = new SolveCrimeView();
-        String caseSolved = instance.getInput();
         
         for (int i = 0; i < caseList.length; i++){       
             String caseName = caseList[i].getCaseName();
             
-            if(!caseSolved.equals(caseName))
-                throw new CasesControlException("Case Does Not Exist");
+            if(input.equals(caseName))
+                return true;
         }
+        
+        throw new CasesControlException("Case Does Not Exist");
        
     }
     

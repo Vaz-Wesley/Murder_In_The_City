@@ -24,31 +24,50 @@ public class SolveCrimeView extends View {
             + "\n -------------------------------------------");
     }
     
+    @Override
+    public void display(){
+     
+       boolean done = false;
+        
+        do{            
+            String value = this.getInput();
+            if (value.toUpperCase().equals("E"))
+                return;
+            
+            done = this.doAction(value);
+            
+            } while (!done);
+    }
     
     @Override
      public boolean doAction(String input){
-         
-        input = input.toUpperCase();
+        
+        boolean returnValue;
         
         try {
-            this.crimeCheckReturn();
+             returnValue = crimeCheckReturn(input);
         } catch (CasesControlException me) {
             System.out.println(me.getMessage());
             return false;
         }
         
-        if(!input.equals("E")) {
+        if (returnValue == true){
+            System.out.println("*** Crime Solved ***");
+            return true;
+        }
+        
+        if(input.equals("E")) {
             return true;
         } 
         
         return false;
     }
     
-     private void crimeCheckReturn() throws CasesControlException {   
+     private boolean crimeCheckReturn(String input) throws CasesControlException {   
          
-        //boolean solveCrimeReturn = 
-       PoliceOfficeSceneControl.solveCrime();
+       boolean returnValue = PoliceOfficeSceneControl.solveCrime(input);
         
+       return returnValue;
     }
     
 }

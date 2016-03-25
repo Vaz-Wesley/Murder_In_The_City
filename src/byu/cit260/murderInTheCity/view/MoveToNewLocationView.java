@@ -54,7 +54,7 @@ public class MoveToNewLocationView extends View {
         
         private void laboratory(){            
             LaboratoryView laboratoryView = new LaboratoryView(); 
-            laboratoryView.getDoubleNumber();
+            laboratoryView.display();
         }
        
         private void crimeScene(){            

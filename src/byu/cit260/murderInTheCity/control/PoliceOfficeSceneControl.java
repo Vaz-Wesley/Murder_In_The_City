@@ -15,15 +15,16 @@ import byu.cit260.murderInTheCity.view.SolveCrimeView;
  */
 public class PoliceOfficeSceneControl {
     
-    public static void solveCrime() throws CasesControlException{
+    public static boolean solveCrime(String input) throws CasesControlException{
         
-        //boolean casesReturn = 
-        CasesControl.checkList();
+     
+        boolean returnValue = CasesControl.checkList(input);
         double playerProgress = 100;
         
-        //if (casesReturn == true){
-          //  return true;
-       // }
+        if (returnValue == true){
+            return true;
+        }
         
+        return false;
     }
 }
