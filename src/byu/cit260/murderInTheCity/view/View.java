@@ -5,7 +5,10 @@
  */
 package byu.cit260.murderInTheCity.view;
 
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.PrintWriter;
+import murderinthecity.MurderInTheCity;
 
 /**
  *
@@ -14,6 +17,9 @@ import java.util.Scanner;
 public abstract class View implements ViewInterface{
     
     protected String displayMessage;
+    
+    protected final BufferedReader keyboard = MurderInTheCity.getInFile();
+    protected final PrintWriter console = MurderInTheCity.getOutFile();
     
     public View(){
     }
@@ -24,8 +30,8 @@ public abstract class View implements ViewInterface{
     
     @Override
     public void display(){
-     
-       boolean done = false;
+        
+        boolean done = false;
         
         do{            
             String value = this.getInput();
@@ -38,28 +44,36 @@ public abstract class View implements ViewInterface{
     }
     
     @Override
-    public String getInput(){             
+    public String getInput(){           
         
-        Scanner keyboard = new Scanner(System.in); 
         boolean valid = false;
         String value = null;
         
-        while (!valid) { // loop while an invalid value is entered
-            
-            // prompt for an option
-            System.out.println("\n" +  this.displayMessage);
-            System.out.println("\nChoose an Option:");
-            
-            value = keyboard.nextLine(); // get next lyne typed on keyboard
-            value = value.trim(); // trim off leading and trailing blanks
-            
-            if (value.length() < 1) { //value is blank
-                System.out.println("\nInvalid value: value can not be blank");
-                continue;
+        try {
+            while (!valid) { 
+                // loop while an invalid value is entered
+
+                // prompt for an option
+                this.console.println(this.displayMessage);
+                this.console.println("\nChoose an Option:");
+
+                value = this.keyboard.readLine(); // get next lyne typed on keyboard
+                value = value.trim(); // trim off leading and trailing blanks
+
+                if (value.length() < 1) { //value is blank
+                    ErrorView.display(this.getClass().getName(),
+                                      "You must enter a value");
+                    continue;
+                }
+
+                break; //end the loop
             }
             
-            break; //end the loop
+        } catch (IOException e) {
+                 ErrorView.display(this.getClass().getName(),
+                         "Error reading input: " + e.getMessage());
         }
+        
         
         return value; // return the value entered
     }

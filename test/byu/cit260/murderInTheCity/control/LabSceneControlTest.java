@@ -5,6 +5,8 @@
  */
 package byu.cit260.murderInTheCity.control;
 
+import java.io.PrintWriter;
+import murderinthecity.MurderInTheCity;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -15,6 +17,9 @@ import static org.junit.Assert.*;
  * @author Wesley Vaz_2
  */
 public class LabSceneControlTest {
+    
+    protected final PrintWriter console = MurderInTheCity.getOutFile();
+
     
     public LabSceneControlTest() {
     }
@@ -32,13 +37,13 @@ public class LabSceneControlTest {
      */
     @Test
     public void testCalcTimeSinceDeath() {
-        System.out.println("calcTimeSinceDeath");
+        this.console.println("calcTimeSinceDeath");
         
         /************** 
          * TEST CASE #1
          **************/
         
-        System.out.println("\tTest Case #1");
+        this.console.println("\tTest Case #1");
         
         // input values
         double avgBodyTemp = 98.6;
@@ -62,7 +67,7 @@ public class LabSceneControlTest {
          * TEST CASE #2
          **************/
         
-        System.out.println("\tTest Case #2");
+        this.console.println("\tTest Case #2");
         
         // input values
         avgBodyTemp = 98.6;
@@ -82,7 +87,7 @@ public class LabSceneControlTest {
          * TEST CASE #3
          **************/
         
-        System.out.println("\tTest Case #3");
+        this.console.println("\tTest Case #3");
         
         // input values
         avgBodyTemp = 95.8;
@@ -102,7 +107,7 @@ public class LabSceneControlTest {
          * TEST CASE #4
          **************/
         
-        System.out.println("\tTest Case #4");
+        this.console.println("\tTest Case #4");
         
         // input values
         avgBodyTemp = 98.6;
@@ -122,7 +127,7 @@ public class LabSceneControlTest {
          * TEST CASE #5
          **************/
         
-        System.out.println("\tTest Case #5");
+        this.console.println("\tTest Case #5");
         
         // input values
         avgBodyTemp = 98.6;
@@ -142,7 +147,7 @@ public class LabSceneControlTest {
          * TEST CASE #6
          **************/
         
-        System.out.println("\tTest Case #6");
+        this.console.println("\tTest Case #6");
         
         // input values
         avgBodyTemp = 98.6;
@@ -162,7 +167,7 @@ public class LabSceneControlTest {
          * TEST CASE #7
          **************/
         
-        System.out.println("\tTest Case #7");
+        this.console.println("\tTest Case #7");
         
         // input values
         avgBodyTemp = 98.6;
@@ -184,13 +189,13 @@ public class LabSceneControlTest {
      */
     @Test
     public void testValidateAlibi() {
-        System.out.println("validateAlibi");
+        this.console.println("validateAlibi");
        
         /************** 
          * TEST CASE #1
          **************/
         
-        System.out.println("\tTest Case #1");
+        this.console.println("\tTest Case #1");
        
         // input values
         double milesTraveled = 30;
@@ -211,7 +216,7 @@ public class LabSceneControlTest {
          * TEST CASE #2
          **************/
         
-        System.out.println("\tTest Case #2");
+        this.console.println("\tTest Case #2");
        
         // input values
         milesTraveled = 60;
@@ -229,7 +234,7 @@ public class LabSceneControlTest {
          * TEST CASE #3
          **************/
         
-        System.out.println("\tTest Case #3");
+        this.console.println("\tTest Case #3");
        
         // input values
         milesTraveled = 15;
@@ -247,7 +252,7 @@ public class LabSceneControlTest {
          * TEST CASE #4
          **************/
         
-        System.out.println("\tTest Case #4");
+        this.console.println("\tTest Case #4");
        
         // input values
         milesTraveled = 15;
@@ -265,7 +270,7 @@ public class LabSceneControlTest {
          * TEST CASE #5
          **************/
         
-        System.out.println("\tTest Case #5");
+        this.console.println("\tTest Case #5");
        
         // input values
         milesTraveled = 60;
@@ -283,7 +288,7 @@ public class LabSceneControlTest {
          * TEST CASE #6
          **************/
         
-        System.out.println("\tTest Case #6");
+        this.console.println("\tTest Case #6");
        
         // input values
         milesTraveled = 2;
@@ -321,13 +326,13 @@ public class LabSceneControlTest {
      */
     @Test
     public void testCelsiusToFahrenheit() {
-        System.out.println("celsiusToFahrenheit");
+        this.console.println("celsiusToFahrenheit");
         
         /************** 
          * TEST CASE #1
          **************/
         
-        System.out.println("\tTest Case #1");
+        this.console.println("\tTest Case #1");
         
         // input values
         double tempCelsius = -05;
@@ -348,7 +353,7 @@ public class LabSceneControlTest {
          * TEST CASE #2
          **************/
         
-        System.out.println("\tTest Case #2");
+        this.console.println("\tTest Case #2");
         
         // input values
         tempCelsius = -30;
@@ -366,7 +371,7 @@ public class LabSceneControlTest {
          * TEST CASE #3
          **************/
         
-        System.out.println("\tTest Case #3");
+        this.console.println("\tTest Case #3");
         
         // input values
         tempCelsius = 50;
@@ -384,7 +389,7 @@ public class LabSceneControlTest {
          * TEST CASE #4
          **************/
         
-        System.out.println("\tTest Case #4");
+        this.console.println("\tTest Case #4");
         
         // input values
         tempCelsius = 0;
@@ -402,7 +407,7 @@ public class LabSceneControlTest {
          * TEST CASE #5
          **************/
         
-        System.out.println("\tTest Case #5");
+        this.console.println("\tTest Case #5");
         
         // input values
         tempCelsius = -20;
@@ -420,7 +425,7 @@ public class LabSceneControlTest {
          * TEST CASE #6
          **************/
         
-        System.out.println("\tTest Case #6");
+        this.console.println("\tTest Case #6");
         
         // input values
         tempCelsius = 50;
@@ -438,7 +443,7 @@ public class LabSceneControlTest {
          * TEST CASE #7
          **************/
         
-        System.out.println("\tTest Case #7");
+        this.console.println("\tTest Case #7");
         
         // input values
         tempCelsius = 50;

@@ -47,12 +47,12 @@ public class SolveCrimeView extends View {
         try {
              returnValue = crimeCheckReturn(input);
         } catch (CasesControlException me) {
-            System.out.println(me.getMessage());
+            this.console.println(me.getMessage());
             return false;
         }
         
         if (returnValue == true){
-            System.out.println("*** Crime Solved ***");
+            this.console.println("*** Crime Solved ***");
             return true;
         }
         

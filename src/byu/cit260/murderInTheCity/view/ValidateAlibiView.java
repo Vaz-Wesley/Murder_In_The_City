@@ -7,7 +7,10 @@ package byu.cit260.murderInTheCity.view;
 
 import byu.cit260.murderInTheCity.control.LabSceneControl;
 import byu.cit260.murderInTheCity.exceptions.LabSceneControlException;
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.PrintWriter;
+import murderinthecity.MurderInTheCity;
 
 /**
  *
@@ -16,9 +19,12 @@ import java.util.Scanner;
 public class ValidateAlibiView {
     
         String value = null;
+        
+        protected final BufferedReader keyboard = MurderInTheCity.getInFile();
+        protected final PrintWriter console = MurderInTheCity.getOutFile();
     
         public ValidateAlibiView(){
-            System.out.println("\n"
+            this.console.println("\n"
                              + "\n -------------------------------------------"
                              + "\n  VALIDATE ALIBI                            "
                              + "\n -------------------------------------------"
@@ -39,23 +45,28 @@ public class ValidateAlibiView {
         
     }   
     
-    public String[] getInput(){             
+    public String[] getInput(){   
         
-        Scanner keyboard = new Scanner(System.in); 
         boolean valid = false;
         
         String[] doubleValues = new String[2];
         
-        while (!valid) { // loop while an invalid value is entered
-            
-            System.out.println("\n Miles Traveled:");
-            doubleValues[0] = keyboard.nextLine(); // get next lyne typed on keyboard
-            
-            System.out.println("\n Speed of Travel:");
-            doubleValues[1] = keyboard.nextLine(); // get next lyne typed on keyboard
-            
-            break; //end the loop
-        }
+        try {
+            while (!valid) { 
+                // loop while an invalid value is entered
+
+                this.console.println("\n Miles Traveled:");
+                doubleValues[0] = this.keyboard.readLine(); // get next lyne typed on keyboard
+
+                this.console.println("\n Speed of Travel:");
+                doubleValues[1] = this.keyboard.readLine(); // get next lyne typed on keyboard
+
+                break; //end the loop
+                } 
+        } catch (IOException e) {
+                    ErrorView.display(this.getClass().getName(),
+                            "Error reading input: " + e.getMessage());
+                }
         
         return doubleValues; // return the value entered
     }
@@ -75,7 +86,8 @@ public class ValidateAlibiView {
             try { 
                 number[i] = Double.parseDouble(values[i]);
             } catch (NumberFormatException nf) {
-                System.out.println("\nYou must enter a valid number.");
+                ErrorView.display(this.getClass().getName(),
+                        "\nYou must enter a valid number.");
                 return false;
             }
        }
@@ -83,7 +95,7 @@ public class ValidateAlibiView {
        try {
                 this.sinceDeathReturn(number);
             } catch (LabSceneControlException me){
-                System.out.println(me.getMessage());
+                this.console.println(me.getMessage());
             }
        
        return true;
@@ -96,7 +108,7 @@ public class ValidateAlibiView {
             double speedOfTravel = number[1];
             
             double returnValue = LabSceneControl.validateAlibi(speedOfTravel, milesTraveled, minutesInAnHour);
-            System.out.println("\nMINUTES OF TRAVEL: " + returnValue);
+            this.console.println("\nMINUTES OF TRAVEL: " + returnValue);
             
         return returnValue;
     }

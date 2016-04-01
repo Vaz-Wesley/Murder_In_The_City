@@ -41,7 +41,8 @@ public class MoveToNewLocationView extends View {
           case "E":                            // Exit game
                return true;
          default:
-               System.out.println("*** Invalid selection *** Try again");
+               ErrorView.display(this.getClass().getName(),
+                       "*** Invalid selection *** Try again");
         }
         
         return false;
@@ -58,6 +59,6 @@ public class MoveToNewLocationView extends View {
         }
        
         private void crimeScene(){            
-            System.out.println("*** crimeScene function called ***");
+            this.console.println("*** crimeScene function called ***");
         }
 }

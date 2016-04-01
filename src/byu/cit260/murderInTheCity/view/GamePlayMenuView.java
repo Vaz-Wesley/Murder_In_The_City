@@ -26,9 +26,6 @@ public class GamePlayMenuView extends View {
                     + "\n L – Suspect List                     "
                     + "\n M - Move to a new location           "
                     + "\n P - Professional progression         "
-                    + "\n U - Resume game                      "
-                    + "\n R - Restart game                     "
-                    + "\n G - Save game                        "
                     + "\n E - Exit game                        "     
                     + "\n -------------------------------------");
     }
@@ -60,23 +57,12 @@ public class GamePlayMenuView extends View {
           case "p":
                this.professionalProgress(); 
             break;
-          case "U":                            // Resume game
-          case "u":
-                this.resumeGame(); 
-            break;  
-          case "R":                            // Restart game
-          case "r":
-               this.restartGame(); 
-            break;
-          case "G":                            // Save game
-          case "g":
-               this.saveGame();  
-            break;
           case "E":                            // exit
           case "e":
               return true;
           default:
-               System.out.println("*** Invalid selection *** Try again");
+               ErrorView.display(this.getClass().getName(),
+                       "*** Invalid selection *** Try again");
             break;
         }
         
@@ -86,35 +72,20 @@ public class GamePlayMenuView extends View {
     public void viewCityLocations(){
         
         String cityView = MapControl.cityView();
-        System.out.println(cityView);
-        
-        /*public void viewCityLocations(ArrayList<Map> place) {
-
-            for (Map location : place ) {
-
-                System.out.println(   "\n"
-                                    + "\n -------------------------------------"
-                                    + "\n  City Locations (So Far)             "
-                                    + "\n -------------------------------------"
-                                    + "\n Police Office                        "
-                                    + "\n Laboratory                           "
-                                    + "\n" + location.getLocationName());
-            }
-        }
-    */    
+        this.console.println(cityView); 
     }
 
     public void listOfPiecesOfEvidence() {
         
         PiecesOfEvidence[] piecesOfEvidence = GameControl.getSortedPiecesOfEvidence();
         
-        System.out.println("\nList of Pieces Of Evidence");
-        System.out.println("Evidence Name" + "\t" +
+        this.console.println("\nList of Pieces Of Evidence");
+        this.console.println("Evidence Name" + "\t" +
                            "Evidence Type" + "\t" +
                            "Evidence Origin");
         
         for (PiecesOfEvidence evidence : piecesOfEvidence ){
-            System.out.println(evidence.getEvidenceName() + "\t  " +
+            this.console.println(evidence.getEvidenceName() + "\t  " +
                                evidence.getEvidenceType() + "\t  " +
                                evidence.getEvidenceOrigin());
         }
@@ -122,7 +93,7 @@ public class GamePlayMenuView extends View {
 
     private void suspectList() {
         String checkList = SuspectListControl.checkList();
-        System.out.println(checkList);
+        this.console.println(checkList);
     }
 
     private void moveToNewLocation() {   
@@ -132,18 +103,18 @@ public class GamePlayMenuView extends View {
     }
 
     private void professionalProgress() {
-        System.out.println("*** professionalProgress called***");
+        this.console.println("*** professionalProgress called***");
     }
 
     private void resumeGame() {
-        System.out.println("*** resumeGame called***");
+        this.console.println("*** resumeGame called***");
     }
 
     private void restartGame() {
-        System.out.println("*** restartGame called***");
+        this.console.println("*** restartGame called***");
     }
 
     private void saveGame() {
-        System.out.println("*** saveGame called***");
+        this.console.println("*** saveGame called***");
     } 
 }

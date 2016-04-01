@@ -56,7 +56,8 @@ public class HelpMenuView extends View {
           case "e":
               return true;
           default:
-               System.out.println("*** Help Invalid selection *** Try again");
+               ErrorView.display(this.getClass().getName(),
+                       "*** Help Invalid selection *** Try again");
                break;
         }
         
@@ -64,7 +65,7 @@ public class HelpMenuView extends View {
     }
     
         private void showPurposeGame(){            
-            System.out.println("\n The game begins on Albert's first day as a   "
+            this.console.println("\n The game begins on Albert's first day as a   "
                             + "\n probational police detective. During the     "
                             + "\n game, you will need to solve crimes that     "
                             + "\n happen throughout the city. With each        "
@@ -80,7 +81,7 @@ public class HelpMenuView extends View {
         }
         
         private void showHowToMove(){            
-            System.out.println("\n The screen prompts the payer to enter the   "
+            this.console.println("\n The screen prompts the payer to enter the   "
                             + "\n name of the location they would like to move "
                             + "\n to. If the location name is invalid, the     "
                             + "\n computer will throw an error message and     "
@@ -91,7 +92,7 @@ public class HelpMenuView extends View {
         }
         
         private void calcTimeSinceDeath(){            
-            System.out.println("\n A menu appears which asks the player to     "
+            this.console.println("\n A menu appears which asks the player to     "
                             + "\n enter the time the body was found, body      "
                             + "\n temperature, and room temperature. Then the  "
                             + "\n computer calculates the since death.         "
@@ -99,13 +100,13 @@ public class HelpMenuView extends View {
         }
         
         private void celsiusToFahrenheit(){            
-            System.out.println("\n The player will enter the temperature in    "
+            this.console.println("\n The player will enter the temperature in    "
                             + "\n Celsius to convert it to Fahrenheit.         "
                               );
         }
         
         private void validateAlibi(){            
-            System.out.println("\n Using the time of death and Celsius         "
+            this.console.println("\n Using the time of death and Celsius         "
                             + "\n to Fahrenheit calculations, the computer will"
                             + "\n prompt the player to enter the information.  "
                             + "\n It will then output a distance from the e.   "

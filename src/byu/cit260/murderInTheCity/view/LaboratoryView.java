@@ -42,7 +42,8 @@ public class LaboratoryView extends View{
           case "E":                            // Exit game
                return true;
          default:
-               System.out.println("*** Invalid selection *** Try again");
+               ErrorView.display(this.getClass().getName(),
+                       "*** Invalid selection *** Try again");
         }
         
         return false;
@@ -59,6 +60,6 @@ public class LaboratoryView extends View{
         }
        
         private void celsiusToFahrenheit(){            
-            System.out.println("*** celsiusToFahrenheit function called ***");
+            this.console.println("*** celsiusToFahrenheit function called ***");
         }
 }

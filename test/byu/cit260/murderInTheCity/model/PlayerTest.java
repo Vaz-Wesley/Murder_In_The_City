@@ -5,6 +5,7 @@
  */
 package byu.cit260.murderInTheCity.model;
 
+import java.io.PrintWriter;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -17,6 +18,9 @@ import static org.junit.Assert.*;
  * @author Wady Tupiza
  */
 public class PlayerTest {
+    
+    protected final PrintWriter console = murderinthecity.MurderInTheCity.getOutFile();
+
     
     public PlayerTest() {
     }
@@ -42,7 +46,7 @@ public class PlayerTest {
      */
     @Test
     public void testGetPlayerName() {
-        System.out.println("getPlayerName");
+        this.console.println("getPlayerName");
         Player instance = new Player();
         String expResult = "";
         String result = instance.getPlayerName();
@@ -56,7 +60,7 @@ public class PlayerTest {
      */
     @Test
     public void testSetPlayerName() {
-        System.out.println("setPlayerName");
+        this.console.println("setPlayerName");
         String playerName = "";
         Player instance = new Player();
         instance.setPlayerName(playerName);
@@ -69,7 +73,7 @@ public class PlayerTest {
      */
     @Test
     public void testGetPlayerRankTitle() {
-        System.out.println("getPlayerRankTitle");
+        this.console.println("getPlayerRankTitle");
         Player instance = new Player();
         String expResult = "";
         String result = instance.getPlayerRankTitle();
@@ -83,7 +87,7 @@ public class PlayerTest {
      */
     @Test
     public void testSetPlayerRankTitle() {
-        System.out.println("setPlayerRankTitle");
+        this.console.println("setPlayerRankTitle");
         String playerRankTitle = "";
         Player instance = new Player();
         instance.setPlayerRankTitle(playerRankTitle);
@@ -96,7 +100,7 @@ public class PlayerTest {
      */
     @Test
     public void testGetPlayerProgress() {
-        System.out.println("getPlayerProgress");
+        this.console.println("getPlayerProgress");
         Player instance = new Player();
         double expResult = 0.0;
         double result = instance.getPlayerProgress();
@@ -110,7 +114,7 @@ public class PlayerTest {
      */
     @Test
     public void testSetPlayerProgress() {
-        System.out.println("setPlayerProgress");
+        this.console.println("setPlayerProgress");
         double playerProgress = 0.0;
         Player instance = new Player();
         instance.setPlayerProgress(playerProgress);
@@ -123,7 +127,7 @@ public class PlayerTest {
      */
     @Test
     public void testHashCode() {
-        System.out.println("hashCode");
+        this.console.println("hashCode");
         Player instance = new Player();
         int expResult = 0;
         int result = instance.hashCode();
@@ -137,7 +141,7 @@ public class PlayerTest {
      */
     @Test
     public void testToString() {
-        System.out.println("toString");
+        this.console.println("toString");
         Player instance = new Player();
         String expResult = "";
         String result = instance.toString();
@@ -151,7 +155,7 @@ public class PlayerTest {
      */
     @Test
     public void testEquals() {
-        System.out.println("equals");
+        this.console.println("equals");
         Object obj = null;
         Player instance = new Player();
         boolean expResult = false;

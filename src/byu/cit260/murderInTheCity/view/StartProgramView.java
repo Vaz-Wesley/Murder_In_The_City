@@ -7,7 +7,10 @@ package byu.cit260.murderInTheCity.view;
 
 import byu.cit260.murderInTheCity.control.GameControl;
 import byu.cit260.murderInTheCity.model.Player;
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.PrintWriter;
+import murderinthecity.MurderInTheCity;
 
 /**
  *
@@ -16,6 +19,9 @@ import java.util.Scanner;
 public class StartProgramView {
     
     private String promptMessage;
+    
+    protected final BufferedReader keyboard = MurderInTheCity.getInFile();
+    protected final PrintWriter console = MurderInTheCity.getOutFile();
     
     // constructor function
     public StartProgramView() {
@@ -26,7 +32,7 @@ public class StartProgramView {
 
     private void displayBanner() {
         
-        System.out.println(
+        this.console.println(
                   "\n**********************************************************"
                 + "\n*                                                        *"
                 + "\n* Murder in the City is a text based role playing game   *"
@@ -72,24 +78,31 @@ public class StartProgramView {
     }
 
     private String getPlayersName() {        
-          
-        Scanner keyboard = new Scanner(System.in); // get infile for keyboard
+        
         boolean valid = false; // initialize to not valid
         String value =" "; // value to be returned
         
-        while (!valid) { // loop while an invalid value is entered
-            System.out.println("\n" + this.promptMessage);
-            
-            value = keyboard.nextLine(); // get next lyne typed on keyboard
-            value = value.trim(); // trim off leading and trailing blanks
-            
-            if (value.length() < 1) { //value is blank
-                System.out.println("\nInvalid value: value can not be blank");
-                continue;
+        try {
+            while (!valid) { 
+                // loop while an invalid value is entered
+                this.console.println("\n" + this.promptMessage);
+
+                value = this.keyboard.readLine(); // get next lyne typed on keyboard
+                value = value.trim(); // trim off leading and trailing blanks
+
+                if (value.length() < 1) { //value is blank
+                    ErrorView.display(this.getClass().getName(),
+                            "\nInvalid value: value can not be blank");
+                    continue;
+                }
+
+                break; //end the loop
             }
-            
-            break; //end the loop
-        }
+                 
+        } catch (IOException e) {
+                    ErrorView.display(this.getClass().getName(),
+                            "Error reading input: " + e.getMessage());
+                }
         
         return value; // return the value entered
 
@@ -99,7 +112,8 @@ public class StartProgramView {
         
         
         if (playersName.length() < 2){            
-            System.out.println("\nInvalid players name: "
+            ErrorView.display(this.getClass().getName(),
+                       "\nInvalid players name: "
                      + "The name must be greater than one character in length");
             return false;
         }
@@ -107,7 +121,8 @@ public class StartProgramView {
         Player player = GameControl.createPlayer(playersName);
         
         if (player == null){            
-            System.out.println("\nError creating the player");
+            ErrorView.display(this.getClass().getName(),
+                    "\nError creating the player");
             return false;   
         }
         
@@ -118,7 +133,7 @@ public class StartProgramView {
 
     private void displayNextView(Player player) {
        
-        System.out.println("\n============================================="
+        this.console.println("\n============================================="
                            + "\n Welcome to the game " + player.getPlayerName()
                            + "\n We hope you have a lot of fun             "
                            + "\n==========================================="

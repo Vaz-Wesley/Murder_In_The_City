@@ -48,7 +48,8 @@ public class MainMenuView extends View {
           case "E":                            // Exit game
                return true;
          default:
-               System.out.println("*** Invalid selection *** Try again");
+               ErrorView.display(this.getClass().getName(),
+                       "*** Invalid selection *** Try again");
         }
         
         return false;
@@ -72,10 +73,34 @@ public class MainMenuView extends View {
         }
         
         private void saveGame(){            
-            System.out.println("*** saveGame function called ***");
-        }
+           this.console.println("\nEnter the file path for file where the game"
+                                + " is to be saved");
+           
+           String filePath = this.getInput();
+           
+            try {
+               //save the fame to the specified file
+               GameControl.saveGame(MurderInTheCity.getCurrentGame(), filePath);
+            } catch (Exception ex) {
+                ErrorView.display("MainMenuView", ex.getMessage());
+            }
+        } 
         
         private void resumeGame(){            
-            System.out.println("*** resumeGame function called ***");
+            
+            this.console.println("\n\nEnter the file path file where the game"
+                                + "\nis to be continued");
+            
+            String filePath = this.getInput();
+            
+            try {
+                //start a saved game
+                GameControl.getSavedGame(filePath);
+            } catch (Exception ex) {
+                ErrorView.display("MainMenuView", ex.getMessage());
+            }
+            
+            GamePlayMenuView gameMenu = new GamePlayMenuView();
+            gameMenu.display();
         }
 }

@@ -6,6 +6,8 @@
 package byu.cit260.murderInTheCity.control;
 
 import byu.cit260.murderInTheCity.model.Player;
+import java.io.PrintWriter;
+import murderinthecity.MurderInTheCity;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -15,6 +17,9 @@ import static org.junit.Assert.*;
  */
 public class GameControlTest {
     
+    protected final PrintWriter console = MurderInTheCity.getOutFile();
+
+    
     public GameControlTest() {
     }
 
@@ -23,7 +28,7 @@ public class GameControlTest {
      */
     @Test
     public void testCreatePlayer() {
-        System.out.println("createPlayer");
+        this.console.println("createPlayer");
         String name = "";
         Player expResult = null;
         Player result = GameControl.createPlayer(name);

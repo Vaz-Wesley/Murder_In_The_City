@@ -37,14 +37,15 @@ public class PoliceOfficeView extends View {
           case "E":                            // Exit game
                return true;
          default:
-               System.out.println("*** Invalid selection *** Try again");
+               ErrorView.display(this.getClass().getName(),
+                       "*** Invalid selection *** Try again");
         }
         
         return false;
     }
     
      private void interrogateSuspect(){            
-            System.out.println("*** policeOffice function called ***");
+            this.console.println("*** policeOffice function called ***");
         }
         
         private void solveCrime(){            
