@@ -8,6 +8,8 @@ package byu.cit260.murderInTheCity.view;
 import byu.cit260.murderInTheCity.control.GameControl;
 import byu.cit260.murderInTheCity.control.MapControl;
 import byu.cit260.murderInTheCity.control.SuspectListControl;
+import byu.cit260.murderInTheCity.model.Cases;
+import byu.cit260.murderInTheCity.model.MurderInTheCity;
 import byu.cit260.murderInTheCity.model.PiecesOfEvidence;
 
 /**
@@ -26,6 +28,7 @@ public class GamePlayMenuView extends View {
                     + "\n L – Suspect List                     "
                     + "\n M - Move to a new location           "
                     + "\n P - Professional progression         "
+                    + "\n R - Print a report                   "   
                     + "\n E - Exit game                        "     
                     + "\n -------------------------------------");
     }
@@ -56,6 +59,10 @@ public class GamePlayMenuView extends View {
           case "P":                            // Player Progress
           case "p":
                this.professionalProgress(); 
+            break;
+          case "R":                            // Player Progress
+          case "r":
+               this.printReport(); 
             break;
           case "E":                            // exit
           case "e":
@@ -114,6 +121,22 @@ public class GamePlayMenuView extends View {
         this.console.println("*** restartGame called***");
     }
 
+    private void printReport() {
+        this.console.println("\nEnter the file path for where the report"
+                                + " is to be printed");
+           
+           String filePath = this.getInput();
+           
+            try {
+               //save the game to the specified file
+               ReportView input = new ReportView();
+               input.printReport(filePath);
+               
+            } catch (Exception ex) {
+                ErrorView.display("Error printing file", ex.getMessage());
+            }
+    } 
+    
     private void saveGame() {
         this.console.println("*** saveGame called***");
     } 
