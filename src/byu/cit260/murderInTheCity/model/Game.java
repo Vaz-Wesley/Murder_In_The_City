@@ -23,7 +23,7 @@ public class Game implements Serializable{
     private Cases[] cases;
     private PiecesOfEvidence[] piecesOfEvidence;
     //private ArrayList<SuspectList> suspectList;
-    private ArrayList<Map> map;
+    private Map[] map;
 
     public Game() {
     }
@@ -44,12 +44,12 @@ public class Game implements Serializable{
         this.noPeople = noPeople;
     }
 
-    public ArrayList<Map> getMap() {
+    public Map[] getMap() {
         return map;
     }
 
-    public void setMap(ArrayList<Map> location) {
-        this.map = location;
+    public void setMap(Map[] map) {
+        this.map = map;
     }
 
     public Player getPlayer() {

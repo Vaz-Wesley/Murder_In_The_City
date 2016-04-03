@@ -14,9 +14,10 @@ import java.io.Serializable;
 public class Map implements Serializable{
     
     private String locationName;
+    private String locationChar;
+    
 
-    public Map(String name) {
-        this.locationName = name;
+    public Map() {
     }
 
     public String getLocationName() {
@@ -26,4 +27,13 @@ public class Map implements Serializable{
     public void setLocationName(String locationName) {
         this.locationName = locationName;
     }  
+
+    public String getLocationChar() {
+        return locationChar;
+    }
+
+    public void setLocationChar(String locationChar) {
+        this.locationChar = locationChar;
+    }
+    
 }

@@ -91,8 +91,8 @@ public class GameControl {
        // ArrayList<SuspectList> suspectList = SuspectListControl.addSuspect();
        // game.setSuspectList(suspectList);
         
-        // = MapControl.addLocation();
-        //game.setMap(location);
+        Map[] map = MapControl.locationsList();
+        game.setMap(map);
     }
     
     public static PiecesOfEvidence[] getSortedPiecesOfEvidence(){

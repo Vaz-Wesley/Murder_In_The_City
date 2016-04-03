@@ -5,8 +5,15 @@
  */
 package byu.cit260.murderInTheCity.control;
 
+import byu.cit260.murderInTheCity.exceptions.CasesControlException;
+import byu.cit260.murderInTheCity.exceptions.MapControlException;
 import byu.cit260.murderInTheCity.model.Map;
+import byu.cit260.murderInTheCity.view.MapView;
+import byu.cit260.murderInTheCity.view.PoliceOfficeView;
+import byu.cit260.murderInTheCity.view.View;
+import java.io.PrintWriter;
 import java.util.ArrayList;
+import murderinthecity.MurderInTheCity;
 
 /**
  *
@@ -14,43 +21,59 @@ import java.util.ArrayList;
  */
 public class MapControl {
     
-    public static String map;
+    protected static final PrintWriter console = MurderInTheCity.getOutFile();
     
-    public static String cityView(){
-       
-                map = ("\n"
-                    + "\n -------------------------------------"
-                    + "\n  City Locations                      "
-                    + "\n -------------------------------------"
-                    + "\n Police Office                        "
-                    + "\n Laboratory                           "
-                    + "\n Billionaire Cassino                  "
-                    + "\n Black Rock Stadium                   "
-                    + "\n Kid Mania Park                       "
-                    + "\n -------------------------------------");
+    public static String findLocation(String input) throws MapControlException{
         
-        return map;
+        //MapView input = new MapView();
+        //input.getInput();
+        
+        Map[] locations = locationsList();
+        
+        String values ="";
+        //String map = "";
+        
+        for (int i = 0; i < locations.length; i++){
+            String locationName = locations[i].getLocationName();
+            
+            if(locationName.equals(input))
+              values = ("\n" + locations[i].getLocationChar() + 
+                                         " - " + locations[i].getLocationName());
+        }
+        
+        if (values == ""){
+            throw new MapControlException("Case Does Not Exist");
+        }
+        
+        return values;
     }
        
-   /* public enum Locations{
+     public enum Locations{
         cassino,
         stadium,
         park;
     }
     
-    public static ArrayList<Map> addLocation(){
+    public static Map[] locationsList(){
         
-        ArrayList<Map> locationName = new ArrayList<>();
+        //created array of locations
+        Map[] locationName = new Map[3];
         
-        locationName.add(Locations.cassino.ordinal(), new Map("Cassino"));
-        locationName.add(Locations.stadium.ordinal(), new Map("Stadium"));
-        locationName.add(Locations.park.ordinal(), new Map("Kid Mania Park"));
+        Map cassinoLocation = new Map();
+        cassinoLocation.setLocationChar("B");
+        cassinoLocation.setLocationName("Billionaire Cassino");
+        locationName[Locations.cassino.ordinal()] = cassinoLocation;
+        
+        Map StadiumLocation = new Map();
+        StadiumLocation.setLocationChar("S");
+        StadiumLocation.setLocationName("Black Rock Stadium");
+        locationName[Locations.stadium.ordinal()] = StadiumLocation;
+        
+        Map parkLocation = new Map();
+        parkLocation.setLocationChar("K");
+        parkLocation.setLocationName("Kid Mania Park");
+        locationName[Locations.park.ordinal()] = parkLocation;
         
         return locationName;
     }
-    
-    public void removeLocation(ArrayList<Map> location, Map place) {
-    
-            location.remove(place); //remove by an object reference
-     }*/
 }

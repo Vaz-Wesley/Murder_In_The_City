@@ -5,6 +5,8 @@
  */
 package byu.cit260.murderInTheCity.view;
 
+import byu.cit260.murderInTheCity.control.SuspectListControl;
+
 /**
  *
  * @author Wesley Vaz_2
@@ -12,6 +14,7 @@ package byu.cit260.murderInTheCity.view;
 public class PoliceOfficeView extends View {
     
     public PoliceOfficeView(){
+        
         super("\n"
             + "\n -------------------------------------------"
             + "\n  Police Office                             "
@@ -44,13 +47,17 @@ public class PoliceOfficeView extends View {
         return false;
     }
     
-     private void interrogateSuspect(){            
-            this.console.println("*** policeOffice function called ***");
+     private void interrogateSuspect(){           
+         this.console.println("\nEnter suspect name");
+            
+        String suspectName = this.getInput();
+            
+        String suspectFile = SuspectListControl.checkList(suspectName);
+        this.console.println(suspectFile);
         }
         
-        private void solveCrime(){            
-            SolveCrimeView instance = new SolveCrimeView();
-            instance.display();
-        }
-    
+    private void solveCrime(){            
+        SolveCrimeView instance = new SolveCrimeView();
+        instance.display();
+    }
 }

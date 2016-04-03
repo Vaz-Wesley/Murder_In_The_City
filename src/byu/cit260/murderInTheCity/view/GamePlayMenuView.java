@@ -8,9 +8,11 @@ package byu.cit260.murderInTheCity.view;
 import byu.cit260.murderInTheCity.control.GameControl;
 import byu.cit260.murderInTheCity.control.MapControl;
 import byu.cit260.murderInTheCity.control.SuspectListControl;
+import static byu.cit260.murderInTheCity.control.SuspectListControl.createSuspectList;
 import byu.cit260.murderInTheCity.model.Cases;
 import byu.cit260.murderInTheCity.model.MurderInTheCity;
 import byu.cit260.murderInTheCity.model.PiecesOfEvidence;
+import byu.cit260.murderInTheCity.model.SuspectList;
 
 /**
  *
@@ -23,10 +25,9 @@ public class GamePlayMenuView extends View {
                     + "\n -------------------------------------"
                     + "\n  Game Play Menu                      "
                     + "\n -------------------------------------"
-                    + "\n C – View city locations              "
                     + "\n O - List of pieces of evidence       "
                     + "\n L – Suspect List                     "
-                    + "\n M - Move to a new location           "
+                    + "\n M - Map                              "
                     + "\n P - Professional progression         "
                     + "\n R - Print a report                   "   
                     + "\n E - Exit game                        "     
@@ -39,11 +40,7 @@ public class GamePlayMenuView extends View {
         choice = choice.toUpperCase();
                 
         switch (choice){
-
-          case "C":                         // View city locations
-          case "c":
-              this.viewCityLocations();       
-             break;
+          
           case "O":                         // List of pieces evidence
           case "o":
                this.listOfPiecesOfEvidence();         
@@ -54,7 +51,7 @@ public class GamePlayMenuView extends View {
              break;
           case "M":                            // Move to a new location
           case "m":
-                this.moveToNewLocation(); 
+                this.mapView(); 
             break;  
           case "P":                            // Player Progress
           case "p":
@@ -76,12 +73,6 @@ public class GamePlayMenuView extends View {
         return false;
     }
 
-    public void viewCityLocations(){
-        
-        String cityView = MapControl.cityView();
-        this.console.println(cityView); 
-    }
-
     public void listOfPiecesOfEvidence() {
         
         PiecesOfEvidence[] piecesOfEvidence = GameControl.getSortedPiecesOfEvidence();
@@ -99,26 +90,22 @@ public class GamePlayMenuView extends View {
     }
 
     private void suspectList() {
-        String checkList = SuspectListControl.checkList();
-        this.console.println(checkList);
+        
+        SuspectList[] suspects = SuspectListControl.createSuspectList();
+        
+        for (int i = 0; i < suspects.length; i++){
+            this.console.println("\nSuspect Name: " + suspects[i].getSuspectName());
+        }
     }
 
-    private void moveToNewLocation() {   
-        MoveToNewLocationView moveToNewLocation = new MoveToNewLocationView(); 
+    private void mapView() {   
+        MapView moveToNewLocation = new MapView(); 
         moveToNewLocation.display();
         
     }
 
     private void professionalProgress() {
         this.console.println("*** professionalProgress called***");
-    }
-
-    private void resumeGame() {
-        this.console.println("*** resumeGame called***");
-    }
-
-    private void restartGame() {
-        this.console.println("*** restartGame called***");
     }
 
     private void printReport() {
@@ -135,9 +122,5 @@ public class GamePlayMenuView extends View {
             } catch (Exception ex) {
                 ErrorView.display("Error printing file", ex.getMessage());
             }
-    } 
-    
-    private void saveGame() {
-        this.console.println("*** saveGame called***");
     } 
 }

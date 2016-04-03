@@ -16,6 +16,7 @@ public class SuspectList implements Serializable{
     
     private String suspectName;
     private String caseInvolved;
+    private String interrogation;
 
     public SuspectList() {
     }
@@ -36,40 +37,11 @@ public class SuspectList implements Serializable{
         this.caseInvolved = caseInvolved;
     }
 
-    @Override
-    public int hashCode() {
-        int hash = 3;
-        hash = 59 * hash + Objects.hashCode(this.suspectName);
-        hash = 59 * hash + Objects.hashCode(this.caseInvolved);
-        return hash;
+    public String getInterrogation() {
+        return interrogation;
     }
 
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final SuspectList other = (SuspectList) obj;
-        if (!Objects.equals(this.suspectName, other.suspectName)) {
-            return false;
-        }
-        if (!Objects.equals(this.caseInvolved, other.caseInvolved)) {
-            return false;
-        }
-        return true;
+    public void setInterrogation(String interrogation) {
+        this.interrogation = interrogation;
     }
-
-    @Override
-    public String toString() {
-        return "SuspectList{" + "suspectName=" + suspectName + ", caseInvolved=" + caseInvolved + '}';
-    }
-    
-    
-    
 }
